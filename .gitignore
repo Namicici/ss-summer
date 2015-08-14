@@ -1,1 +1,8 @@
-./node_mudules
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+node_modules/
+bower_components/
+out/
+app/lib
+npm-debug.log

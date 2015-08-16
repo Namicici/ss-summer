@@ -1,14 +1,25 @@
 <!DOCTYPE html>
-<html ng-app="farmss">
+<html ng-app = "farmss">
     <head>
         <title>farm service station</title>
-        <link rel="stylesheet" type="text/css" href="css/app.min.css">
+        <link rel="stylesheet" type="text/css" href="./thirdParty.css">
+        <link rel="stylesheet" type="text/css" href="./app.min.css">
     </head>
     <body ng-controller = "farmss.views.base">
-        <div class="header"></div>
-        <div class="navigation"></div>
-        <div class="container">
-            <div ng-view></div>
+        <div class="ui inverted top attached demo menu">
+            <a class="item">
+                <i class="sidebar icon"></i>Menu
+            </a>
+        </div>
+        <div class="ui bottom attached segment pushable">
+            <div class="ui inverted left inline vertical sidebar menu uncover visible">
+                <ss-header-menu>pppp</ss-header-menu>
+            </div>
+            <div class="pusher dimmed">
+                <div class="ui basic segment">
+                    <div ng-view></div>
+                </div>
+            </div>
         </div>
         <script type="text/javascript" src="thirdParty.js"></script>
         <script type="text/javascript" src="app.min.js"></script>

@@ -1,0 +1,13 @@
+<div class="ui inverted vertical">
+    <div class="item" ng-repeat = "item in headers">
+        <div class="header">
+            <i class="{{item.icon}}"></i>
+            {{item.displayName}}
+        </div>
+        <div class="menu" ng-repeat="subItem in item.children"> 
+            <a class="item" ng-click = "locate(item, subItem)">
+                {{subItem.displayName}}
+            </a>
+        </div>
+    </div>
+</div>

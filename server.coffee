@@ -14,6 +14,8 @@ app.get "/", (req, res)->
     res.redirect "/app"
 app.get "/menu", (req, res)->
     res.send "home page"
+app.get "/views/Home/summer", (req, res)->
+    res.send "response summer"
 
 server = app.listen port, ()->
     console.log "Express server listen on %s:%s", server.address().address, server.address().port

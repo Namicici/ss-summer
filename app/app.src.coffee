@@ -2,12 +2,18 @@
 
 angular.module "farmss", [
     "ngRoute",
-    "farmss.views"
+    "farmss.views",
+    "farmss.components"
 ]
 .config ["$routeProvider", ($routeProvider)->
     $routeProvider
     .when "/",
-        name: "home"
         templateUrl:"./views/home/home.html"
         controller:"farmss.views.home"
+    .when "/views/:header/:subHeader",
+        templateUrl: (params)->
+            return "./views/#{params.header}/#{params.subHeader}.html"
+        controller: ["$routeParams",($routeParams)->
+            return "farmss.views.#{$routeParams.header}.#{$routeParams.subHeader}"
+        ]
 ]

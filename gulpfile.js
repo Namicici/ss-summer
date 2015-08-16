@@ -25,16 +25,25 @@ gulp.task("compile:coffee", function(){
 });
 
 gulp.task("copy:thirdParty", function(){
-    gulp.src(["./node_modules/angular/angular.min.js", "./node_modules/angular-route/angular-route.min.js"])
-        .pipe(gulp.dest("./app/lib"))
-    gulp.src(["./app/lib/angular.min.js", "./app/lib/angular-route.min.js"])
+    gulp.src(["./node_modules/angular/angular.min.js", 
+        "./node_modules/angular-route/angular-route.min.js",
+        "./node_modules/jquery/dist/jquery.min.js", 
+        "./node_modules/semantic-ui-css/semantic.min.js"])
         .pipe(concat("thirdParty.js"))
+        .pipe(gulp.dest("./out/app"))
+    gulp.src("./node_modules/semantic-ui-icon/assets/**/*")
+        .pipe(gulp.dest("./out/app/assets"))
+    gulp.src(["./node_modules/semantic-ui-css/semantic.min.css",
+        "./node_modules/semantic-ui-icon/icon.min.css"])
+        .pipe(concat("thirdParty.css"))
         .pipe(gulp.dest("./out/app"))
 });
 
 gulp.task("copy:view", function(){
     gulp.src("./app/views/**/*.html")
         .pipe(gulp.dest("./out/app/views"))
+    gulp.src("./app/components/**/*.html")
+        .pipe(gulp.dest("./out/app/components"))
     gulp.src("./app/*.html")
         .pipe(gulp.dest("./out/app"))
 });
@@ -44,7 +53,7 @@ gulp.task("sass", function(){
         .pipe(sass({errLogToConsole: true}))
         .pipe(rename({suffix: ".min"}))
         .pipe(minifycss())
-        .pipe(gulp.dest("./out/app/css"))
+        .pipe(gulp.dest("./out/app"))
 });
 
 gulp.task("minify:js", function(){

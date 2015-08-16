@@ -8,7 +8,12 @@ angular.module "farmss.components"
     scope:
         headers: "="
     controller: ["$scope", ($scope)->
+        childItem = null
         $scope.locate = (item, subItem)->
+            if childItem
+                childItem.active = false
+            childItem = subItem
+            childItem.active = true
             $location.path "/views/#{item.name}/#{subItem.name}"
 
         $scope.headers = [
@@ -20,10 +25,12 @@ angular.module "farmss.components"
                 name: "summer"
                 displayName: "summer lu"
                 icon: "home icon"
+                active: false
             ,
                 name: "sissy"
                 displayName: "sissy li"
                 icon: "home icon"
+                active: false
             ]
         ,
             name: "firstChild"
@@ -34,10 +41,12 @@ angular.module "farmss.components"
                 name: "alex"
                 displayName: "Alex lu"
                 icon: "home icon"
+                active: false
             ,
                 name: "jimmy"
                 displayName: "Jimmy li"
                 icon: "home icon"
+                active: false
             ]
         ]
     ]

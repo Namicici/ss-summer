@@ -5,7 +5,7 @@
             {{item.displayName}}
         </div>
         <div class="menu" ng-repeat="subItem in item.children"> 
-            <a class="item" ng-click = "locate(item, subItem)">
+            <a class="item" ng-click = "locate(item, subItem)" ng-class="{'active': subItem.active}">
                 {{subItem.displayName}}
             </a>
         </div>

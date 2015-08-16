@@ -18,7 +18,7 @@ angular.module "farmss.components"
 
         $scope.headers = [
             name: "home"
-            displayName: "home"
+            displayName: "Home"
             icon: "home icon"
             expanded: false
             children:[
@@ -33,9 +33,9 @@ angular.module "farmss.components"
                 active: false
             ]
         ,
-            name: "firstChild"
-            displayName: "Fitst Child"
-            icon: "home icon"
+            name: "users"
+            displayName: "Users"
+            icon: "users icon"
             expanded: false
             children:[
                 name: "alex"

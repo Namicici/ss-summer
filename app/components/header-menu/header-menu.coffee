@@ -14,7 +14,7 @@ angular.module "farmss.components"
                 childItem.active = false
             childItem = subItem
             childItem.active = true
-            $location.path "/views/#{item.name}/#{subItem.name}"
+            $scope.$emit "farmss.components.header-menu.changed", item, subItem
 
         $scope.headers = [
             name: "home"

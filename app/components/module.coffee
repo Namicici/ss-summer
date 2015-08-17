@@ -1,1 +1,1 @@
-angular.module "farmss.components", ["ngRoute"]
+angular.module "farmss.components", []

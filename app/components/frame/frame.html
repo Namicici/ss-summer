@@ -1,0 +1,20 @@
+<div class="ui inverted top attached demo menu">
+    <a class="item" ng-click="visible = !visible">
+        <i class="sidebar icon"></i>Menu
+    </a>
+</div>
+<div class="ui bottom attached segment pushable">
+    <div class="ui inverted left inline vertical sidebar menu uncover" ng-class="{'visible': visible}">
+        <ss-header-menu></ss-header-menu>
+    </div>
+    <div class="pusher">
+        <div class="ui basic segment">
+            <div ng-if="item.name == 'home'">
+                <div ng-if="subItem.name == 'summer'">{{item.name}} > {{subItem.name}}</div>
+            </div>
+            <div ng-if="item.name == 'home'">
+                <div ng-if="subItem.name == 'sissy'">{{item.name}} > {{subItem.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>

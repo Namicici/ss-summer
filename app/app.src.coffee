@@ -10,10 +10,11 @@ angular.module "farmss", [
     .when "/",
         templateUrl:"./views/home/home.html"
         controller:"farmss.views.home"
-    .when "/views/:header/:subHeader",
+
+    .when "/views/:parent/:child",
         templateUrl: (params)->
-            return "./views/#{params.header}/#{params.subHeader}.html"
+            return "./views/#{params.parent}/#{params.child}.html"
         controller: ["$routeParams",($routeParams)->
-            return "farmss.views.#{$routeParams.header}.#{$routeParams.subHeader}"
+            return "farmss.views.#{$routeParams.parent}.#{$routeParams.child}"
         ]
 ]

@@ -49,5 +49,6 @@ angular.module "farmss.components"
                 active: false
             ]
         ]
+
     ]
 ]

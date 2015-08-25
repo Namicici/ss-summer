@@ -2,16 +2,19 @@
 
 angular.module "farmss", [
     "ngRoute",
-    "farmss.components"
+    "farmss.components",
+    "farmss.views"
 ]
 
 .config ["$routeProvider", ($routeProvider)->
     $routeProvider
     .when "/",
-        templateUrl: "./views/home.html"
+        templateUrl: "./views/home/home.html"
+        controller: "farmss.views.home"
     .when "/views/main",
-        templateUrl: "./views/main.html"
+        templateUrl: "./views/main/main.html"
 ]
+
 
 
 

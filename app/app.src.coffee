@@ -14,7 +14,3 @@ angular.module "farmss", [
     .when "/views/main",
         templateUrl: "./views/main/main.html"
 ]
-
-
-
-

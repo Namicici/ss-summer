@@ -6,9 +6,23 @@ var del = require("del");
 var rename = require("gulp-rename");
 var minifycss = require("gulp-minify-css");
 var uglify = require("gulp-uglify");
+var templateCache = require("gulp-templatecache");
 
 gulp.task("clean:out", function(cb){
     del("./out", cb);
+});
+
+gulp.task("compile:scripts", function(){
+    var options = {
+        output: "./out/app/templates.js",
+        strip: "./out/app/templates",
+        prepend: "partials",
+        moduleName: "templates",
+        minify: {}
+    }
+    gulp.src("./app/components/**/*.html")
+        .pipe(templateCache(options))
+        .pipe(gulp.dest("./"))
 });
 
 gulp.task("compile:coffee", function(){
@@ -42,8 +56,8 @@ gulp.task("copy:thirdParty", function(){
 gulp.task("copy:view", function(){
     gulp.src("./app/views/**/*.html")
         .pipe(gulp.dest("./out/app/views"))
-    gulp.src("./app/components/**/*.html")
-        .pipe(gulp.dest("./out/app/components"))
+    //gulp.src("./app/components/**/*.html")
+    //    .pipe(gulp.dest("./out/app/components"))
     gulp.src("./app/*.html")
         .pipe(gulp.dest("./out/app"))
 });
@@ -75,7 +89,7 @@ gulp.task("copy", function(){
 });
 
 gulp.task("compile", function(){
-    gulp.start("compile:coffee")
+    gulp.start("compile:coffee", "compile:scripts")
 });
 
 gulp.task("build", ["clean:out"], function(){

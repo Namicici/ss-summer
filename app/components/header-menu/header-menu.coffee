@@ -4,7 +4,7 @@ angular.module "farmss.components"
 
 .directive "ssHeaderMenu", ["$location",($location)->
     restrict: "EA"
-    templateUrl: "components/header-menu/header-menu.html"
+    templateUrl: "header-menu/header-menu.html"
     scope:
         headers: "="
     controller: ["$scope", ($scope)->

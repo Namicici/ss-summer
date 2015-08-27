@@ -1,1 +1,1 @@
-angular.module "farmss.views", ["ngRoute"]
+angular.module "farmss.views", []

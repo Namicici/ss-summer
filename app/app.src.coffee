@@ -3,6 +3,7 @@
 angular.module "farmss", [
     "ngRoute",
     "farmss.components",
+    "farmss.templates",
     "farmss.views"
 ]
 

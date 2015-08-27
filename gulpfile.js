@@ -6,23 +6,28 @@ var del = require("del");
 var rename = require("gulp-rename");
 var minifycss = require("gulp-minify-css");
 var uglify = require("gulp-uglify");
-var templateCache = require("gulp-templatecache");
+var templateCache = require("gulp-angular-templatecache");
 
 gulp.task("clean:out", function(cb){
     del("./out", cb);
 });
 
 gulp.task("compile:scripts", function(){
-    var options = {
-        output: "./out/app/templates.js",
-        strip: "./out/app/templates",
-        prepend: "partials",
-        moduleName: "templates",
-        minify: {}
-    }
+    gulp.src("./app/components/**/*.coffee")
+        .pipe(coffee({bare: true}))
+        .pipe(concat("components.js"))
+        .pipe(gulp.dest("./app/components"))
+
     gulp.src("./app/components/**/*.html")
-        .pipe(templateCache(options))
-        .pipe(gulp.dest("./"))
+        .pipe(templateCache("templates.js", {
+            standalone: true,
+            module: "farmss.templates"
+        }))
+        .pipe(gulp.dest("./app/components"))
+
+    gulp.src(["./app/components/templates.js", "./app/components/components.js"])
+        .pipe(concat("templates.js"))
+        .pipe(gulp.dest("./out/app"))
 });
 
 gulp.task("compile:coffee", function(){
@@ -32,7 +37,7 @@ gulp.task("compile:coffee", function(){
     gulp.src("./server/*.coffee")
         .pipe(coffee({bare: true}))
         .pipe(gulp.dest("./out/server"))
-    gulp.src("./app/**/*.coffee")
+    gulp.src(["./app/*.coffee", "./app/views/**/*.coffee"])
         .pipe(coffee({bare: true}))
         .pipe(concat("app.min.js"))
         .pipe(gulp.dest("./out/app"))
@@ -56,8 +61,6 @@ gulp.task("copy:thirdParty", function(){
 gulp.task("copy:view", function(){
     gulp.src("./app/views/**/*.html")
         .pipe(gulp.dest("./out/app/views"))
-    //gulp.src("./app/components/**/*.html")
-    //    .pipe(gulp.dest("./out/app/components"))
     gulp.src("./app/*.html")
         .pipe(gulp.dest("./out/app"))
 });
@@ -89,7 +92,7 @@ gulp.task("copy", function(){
 });
 
 gulp.task("compile", function(){
-    gulp.start("compile:coffee", "compile:scripts")
+    gulp.start("compile:scripts", "compile:coffee")
 });
 
 gulp.task("build", ["clean:out"], function(){

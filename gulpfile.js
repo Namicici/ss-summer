@@ -12,22 +12,21 @@ gulp.task("clean:out", function(cb){
     del("./out", cb);
 });
 
+gulp.task("clean:js", function(cb){
+    del(["./app/components/components.js", "./app/components/templates.js"], cb);
+});
+
 gulp.task("compile:scripts", function(){
     gulp.src("./app/components/**/*.coffee")
         .pipe(coffee({bare: true}))
         .pipe(concat("components.js"))
         .pipe(gulp.dest("./app/components"))
-
     gulp.src("./app/components/**/*.html")
         .pipe(templateCache("templates.js", {
             standalone: true,
-            module: "farmss.templates"
+            module: "ss.templates"
         }))
         .pipe(gulp.dest("./app/components"))
-
-    gulp.src(["./app/components/templates.js", "./app/components/components.js"])
-        .pipe(concat("templates.js"))
-        .pipe(gulp.dest("./out/app"))
 });
 
 gulp.task("compile:coffee", function(){
@@ -56,6 +55,9 @@ gulp.task("copy:thirdParty", function(){
         "./node_modules/semantic-ui-icon/icon.min.css"])
         .pipe(concat("thirdParty.css"))
         .pipe(gulp.dest("./out/app"))
+    gulp.src("./app/components/*.js")
+        .pipe(concat("templates.js"))
+        .pipe(gulp.dest("./out/app"))
 });
 
 gulp.task("copy:view", function(){
@@ -63,6 +65,8 @@ gulp.task("copy:view", function(){
         .pipe(gulp.dest("./out/app/views"))
     gulp.src("./app/*.html")
         .pipe(gulp.dest("./out/app"))
+    gulp.src("./app/images/*.*")
+        .pipe(gulp.dest("./out/app/images"))
 });
 
 gulp.task("sass", function(){

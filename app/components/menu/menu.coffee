@@ -1,6 +1,6 @@
 "use strict"
 
-angular.module "farmss.components"
+angular.module "ss.components"
 
 .directive "ssMenu", ["$location",($location)->
     restrict: "EA"

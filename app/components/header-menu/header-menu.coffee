@@ -1,6 +1,6 @@
 "use strict"
 
-angular.module "farmss.components"
+angular.module "ss.components"
 
 .directive "ssHeaderMenu", ["$location",($location)->
     restrict: "EA"
@@ -14,7 +14,7 @@ angular.module "farmss.components"
                 childItem.active = false
             childItem = subItem
             childItem.active = true
-            $scope.$emit "farmss.components.header-menu.changed", item, subItem
+            $scope.$emit "ss.components.header-menu.changed", item, subItem
 
         $scope.headers = [
             name: "home"

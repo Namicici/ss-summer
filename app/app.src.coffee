@@ -1,17 +1,18 @@
 "use strict"
 
-angular.module "farmss", [
+angular.module "ss", [
     "ngRoute",
-    "farmss.components",
-    "farmss.templates",
-    "farmss.views"
+    "ss.components",
+    "ss.templates",
+    "ss.views"
 ]
 
 .config ["$routeProvider", ($routeProvider)->
     $routeProvider
     .when "/",
         templateUrl: "./views/home/home.html"
-        controller: "farmss.views.home"
-    .when "/views/main",
-        templateUrl: "./views/main/main.html"
+        controller: "ss.views.home"
+    .when "/views/user",
+        templateUrl: "./views/user/user.html"
+        controller: "ss.views.user"
 ]

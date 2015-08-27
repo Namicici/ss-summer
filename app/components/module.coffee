@@ -1,1 +1,1 @@
-angular.module "farmss.components", []
+angular.module "ss.components", []

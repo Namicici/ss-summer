@@ -1,10 +1,10 @@
 "use strict"
 
-angular.module "farmss.views"
+angular.module "ss.views"
 
-.controller "farmss.views.home", ["$scope",($scope)->
+.controller "ss.views.home", ["$scope",($scope)->
 
-    $scope.$on "farmss.components.header-menu.changed", (scope, item, subItem)->
+    $scope.$on "ss.components.header-menu.changed", (scope, item, subItem)->
         $scope.item = item
         $scope.subItem = subItem
 

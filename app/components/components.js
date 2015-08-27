@@ -1,7 +1,7 @@
-angular.module("farmss.components", []);
+angular.module("ss.components", []);
 
 "use strict";
-angular.module("farmss.components").directive("ssHeaderMenu", [
+angular.module("ss.components").directive("ssHeaderMenu", [
   "$location", function($location) {
     return {
       restrict: "EA",
@@ -19,7 +19,7 @@ angular.module("farmss.components").directive("ssHeaderMenu", [
             }
             childItem = subItem;
             childItem.active = true;
-            return $scope.$emit("farmss.components.header-menu.changed", item, subItem);
+            return $scope.$emit("ss.components.header-menu.changed", item, subItem);
           };
           return $scope.headers = [
             {
@@ -67,7 +67,7 @@ angular.module("farmss.components").directive("ssHeaderMenu", [
 ]);
 
 "use strict";
-angular.module("farmss.components").directive("ssMenu", [
+angular.module("ss.components").directive("ssMenu", [
   "$location", function($location) {
     return {
       restrict: "EA",

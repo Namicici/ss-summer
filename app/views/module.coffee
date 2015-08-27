@@ -1,1 +1,1 @@
-angular.module "farmss.views", []
+angular.module "ss.views", []

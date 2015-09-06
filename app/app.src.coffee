@@ -15,4 +15,9 @@ angular.module "ss", [
     .when "/views/user",
         templateUrl: "./views/user/user.html"
         controller: "ss.views.user"
+    ###
+    .when "/views/user/deal",
+        templateUrl: "./views/user/deal/deal.html"
+        controller: "ss.views.deal"
+    ###
 ]

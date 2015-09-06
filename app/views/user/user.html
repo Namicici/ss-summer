@@ -2,11 +2,24 @@
     <div class="ss-user-header">
         <ss-menu></ss-menu>
     </div>
-    <div class="ss-user-content">
+    <div class="ss-user-content" ng-if="currentSection.url == '#deal'">
         <div class="ss-user-left">
-            <img class="ss-user-image" src="./images/test_tree.png"></img>
-            <div class="ui padded grid">
-                <a class="eight wide column" href="#" ng-repeat="department in departments">{{department}}</a>
+            <!--img class="ss-user-image" src="./images/test_tree.png"></img-->
+            <div class="ui two column left aligned padded grid">
+                <div class="column ss-department-label" ng-click="locateToDepartment(department)" ng-repeat="department in departments">
+                    <i class="white angle right icon"></i>
+                    {{department.displayName}}
+                </div>
+            </div>
+        </div>
+        <div class="ss-user-main-content">
+            <div class="ui breadcrumb">
+                <a class="section">{{currentSection.displayName}}</a>
+                <i class="right angle icon divider"></i>
+                <a class="section" ng-if="!!!currentDepartment">所有部门</a>
+                <a class="section" ng-if="!!currentDepartment">{{currentDepartment.displayName}}</a>
+            </div>
+            <div class="ss-user-main-content-detail">
             </div>
         </div>
     </div>

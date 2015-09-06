@@ -3,12 +3,28 @@
     margin: 0 auto;
     height: 100%;
     .ss-user-header{
-        margin: 16px 0;
+        margin-top: 16px;
     }
     .ss-user-content{
+        margin-top: 8px;
+        height: 100%;
         .ss-user-left{
-            width: 210px;
+            width: 220px;
             text-align: center;
+            border-right: solid 1px red;
+            height: 100%;
+            background-color: #EEEEEE;
+            float: left;
+            .ss-department-label{
+                &:hover{
+                    cursor: pointer;
+                    color: red;
+                }
+            }
+        }
+        .ss-user-main-content{
+            margin-left: 8px;
+            float: left;
         }
     }
 }

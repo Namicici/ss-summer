@@ -38,28 +38,7 @@
                 </div>
                 <div class="ui tab segment" data-tab="{{tabData.name}}" ng-repeat="tabData in dealTabs" ng-class="{'active':currentSelectedTab.name == tabData.name}">
                     <div class="all-deals" ng-if="tabData.name == 'all'">
-                        <table class="ui very basic table">
-                          <thead>
-                            <tr>
-                              <th>审批事项编号</th>
-                              <th>审批事项名称</th>
-                              <th>受理部门</th>
-                              <th>办事指南</th>
-                              <th>在线咨询</th>
-                              <th>网上办理</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr ng-repeat="data in allDatas">
-                              <td>{{data.id}}</td>
-                              <td>{{data.name}}</td>
-                              <td>{{data.department}}</td>
-                              <td><i class="file text outline icon"></i></td>
-                              <td><i class="comments outline icon"></i></td>
-                              <td><i class="laptop icon"></i></td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <ss-basic-table ss-headers="basicTableHeaders" ss-datas="allDatas"></ss-basic-table>
                     </div>
                 </div>
             </div>

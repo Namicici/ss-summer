@@ -1,6 +1,21 @@
 angular.module("ss.components", []);
 
 "use strict";
+angular.module("ss.components").directive("ssBasicTable", [
+  function() {
+    return {
+      restrict: "EA",
+      templateUrl: "basic-table/basic-table.html",
+      scope: {
+        ssHeaders: "=",
+        ssDatas: "="
+      },
+      controller: ["$scope", function($scope) {}]
+    };
+  }
+]);
+
+"use strict";
 angular.module("ss.components").directive("ssHeaderMenu", [
   "$location", function($location) {
     return {

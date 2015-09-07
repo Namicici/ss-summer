@@ -53,6 +53,8 @@ angular.module "ss.views"
             url: "/agriculture"
     ]
 
+    $scope.basicTableHeaders = ["审批事项编号", "审批事项名称", "受理部门", "办事指南", "在线咨询", "网上办理"]
+
     $scope.dealTabs = [
             displayName: "全部事项"
             name: "all"
@@ -69,33 +71,133 @@ angular.module "ss.views"
     $scope.currentSelectedTab = $scope.dealTabs[0]
 
     $scope.allDatas = [
-            id: "IQOIS"
-            name: "地震监测设施和地震观测环境保护范围内建设工程审批"
-            department: "地震局"
-        ,
-            id: "GHDIS"
-            name: "建设项目选址意见书"
-            department: "规划建设局"
-        ,
-            id: "IQO25"
-            name: "建设工程抗震设防要求确定"
-            department: "地震局"
-        ,
-            id: "GHD25"
-            name: "建设工程招标投标情况书备案"
-            department: "规划建设局"
-        ,
-            id: "IQOIB"
-            name: "实施大型爆破作业备案"
-            department: "地震局"
-        ,
-            id: "GHD2B"
-            name: "建设工程设计方案审查"
-            department: "规划建设局"
-        ,
-            id: "GHD65"
-            name: "建设用地规划许可证"
-            department: "规划建设局"
+        [
+                type:"text"
+                label: "IQOIS"
+            ,
+                type: "text"
+                label: "地震监测设施和地震观测环境保护范围内建设工程审批"
+            ,
+                type: "text"
+                label: "地震局"
+            ,
+                type: "icon"
+                label: "file text outline icon"
+            ,
+                type: "icon"
+                label: "comments outline icon"
+            ,
+                type: "icon"
+                label: "laptop icon"
+        ],[
+                type: "text"
+                label: "GHDIS"
+            ,
+                type: "text"
+                label: "建设项目选址意见书"
+            ,
+                type: "text"
+                label: "规划建设局"
+            ,
+                type: "icon"
+                label: "file text outline icon"
+            ,
+                type: "icon"
+                label: "comments outline icon"
+            ,
+                type: "icon"
+                label: "laptop icon"
+        ],[
+                type: "text"
+                label: "IQO25"
+            ,
+                type: "text"
+                label: "建设工程抗震设防要求确定"
+            ,
+                type: "text"
+                label: "地震局"
+            ,
+                type: "icon"
+                label: "file text outline icon"
+            ,
+                type: "icon"
+                label: "comments outline icon"
+            ,
+                type: "icon"
+                label: "laptop icon"
+        ],[
+                type: "text"
+                label: "GHD25"
+            ,
+                type: "text"
+                label: "建设工程招标投标情况书备案"
+            ,
+                type: "text"
+                label: "规划建设局"
+            ,
+                type: "icon"
+                label: "file text outline icon"
+            ,
+                type: "icon"
+                label: "comments outline icon"
+            ,
+                type: "icon"
+                label: "laptop icon"
+        ],[
+                type: "text"
+                label: "IQOIB"
+            ,
+                type: "text"
+                label: "实施大型爆破作业备案"
+            ,
+                type: "text"
+                label: "地震局"
+            ,
+                type: "icon"
+                label: "file text outline icon"
+            ,
+                type: "icon"
+                label: "comments outline icon"
+            ,
+                type: "icon"
+                label: "laptop icon"
+        ],[
+                type: "text"
+                label: "GHD2B"
+            ,
+                type: "text"
+                label: "建设工程设计方案审查"
+            ,
+                type: "text"
+                label: "规划建设局"
+            ,
+                type: "icon"
+                label: "file text outline icon"
+            ,
+                type: "icon"
+                label: "comments outline icon"
+            ,
+                type: "icon"
+                label: "laptop icon"
+        ],[
+                type: "text"
+                label: "GHD65"
+            ,
+                type: "text"
+                label: "建设用地规划许可证"
+            ,
+                type: "text"
+                label: "规划建设局"
+            ,
+                type: "icon"
+                label: "file text outline icon"
+            ,
+                type: "icon"
+                label: "comments outline icon"
+            ,
+                type: "icon"
+                label: "laptop icon"
+        ]
     ]
     $scope.locateToDepartment = (department)->
         $scope.currentDepartment = department

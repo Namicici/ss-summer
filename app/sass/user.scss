@@ -11,7 +11,7 @@
         .ss-user-left{
             width: 220px;
             text-align: center;
-            border-right: solid 1px red;
+            //border-right: solid 1px red;
             height: 100%;
             background-color: #EEEEEE;
             float: left;
@@ -25,6 +25,25 @@
         .ss-user-main-content{
             margin-left: 8px;
             float: left;
+            height: 100%;
+            width: 982px;
+            .ss-user-main-content-filter{
+                margin: 16px 0;
+                text-align: right;
+                .ss-user-main-content-filter-search{
+                    display: inline-block;
+                }
+                .ss-user-main-content-filter-search-type{
+                    display: inline-block;
+                }
+            }
+            .ss-user-main-content-detail{
+
+            }
         }
+    }
+
+    .font-size-12{
+        font-size: 12px;
     }
 }

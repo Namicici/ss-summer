@@ -14,12 +14,54 @@
         </div>
         <div class="ss-user-main-content">
             <div class="ui breadcrumb">
-                <a class="section">{{currentSection.displayName}}</a>
+                <a class="section font-size-12">{{currentSection.displayName}}</a>
                 <i class="right angle icon divider"></i>
-                <a class="section" ng-if="!!!currentDepartment">所有部门</a>
-                <a class="section" ng-if="!!currentDepartment">{{currentDepartment.displayName}}</a>
+                <a class="section font-size-12" ng-if="!!!currentDepartment">所有部门</a>
+                <a class="section font-size-12" ng-if="!!currentDepartment">{{currentDepartment.displayName}}</a>
+            </div>
+            <div class="ss-user-main-content-filter">
+                <div class="ui right fluid action left icon input">
+                    <i class="search icon"></i>
+                    <input type="text" placeholder="Search...">
+                    <select class="ui compact selection dropdown">
+                        <option value="all">所有</option>
+                        <option selected="" value="articles">审批事项编号</option>
+                        <option value="products">审批事项名称</option>
+                    </select>
+                    <div type="submit" class="ui button">Search</div>
+                </div>
             </div>
             <div class="ss-user-main-content-detail">
+                <div class="ui pointing secondary menu">
+                    <a class="item font-size-12" data-tab="{{tabData.name}}" ng-repeat="tabData in dealTabs"
+                        ng-class="{'active':currentSelectedTab.name == tabData.name}" ng-click="selectTab(tabData)">{{tabData.displayName}}</a>
+                </div>
+                <div class="ui tab segment" data-tab="{{tabData.name}}" ng-repeat="tabData in dealTabs" ng-class="{'active':currentSelectedTab.name == tabData.name}">
+                    <div class="all-deals" ng-if="tabData.name == 'all'">
+                        <table class="ui very basic table">
+                          <thead>
+                            <tr>
+                              <th>审批事项编号</th>
+                              <th>审批事项名称</th>
+                              <th>受理部门</th>
+                              <th>办事指南</th>
+                              <th>在线咨询</th>
+                              <th>网上办理</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="data in allDatas">
+                              <td>{{data.id}}</td>
+                              <td>{{data.name}}</td>
+                              <td>{{data.department}}</td>
+                              <td><i class="file text outline icon"></i></td>
+                              <td><i class="comments outline icon"></i></td>
+                              <td><i class="laptop icon"></i></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

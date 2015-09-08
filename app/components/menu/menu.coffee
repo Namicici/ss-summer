@@ -5,34 +5,11 @@ angular.module "ss.components"
 .directive "ssMenu", ["$location", ($location)->
     restrict: "EA"
     templateUrl: "menu/menu.html"
+    scope:
+        ssItems: "="
     controller: ["$scope", ($scope)->
         currentSection = null
-        $scope.sections = [
-                displayName:"首页"
-                url: "#home"
-                active: true
-            ,
-                displayName: "办事大厅"
-                url: "#deal"
-                active: false
-            ,
-                displayName: "公告大厅"
-                url: "#announce"
-                active: false
-            ,
-                displayName: "监督大厅"
-                url: "#supervise"
-                active: false
-            ,
-                displayName: "咨询与服务"
-                url: "#service"
-                active: false
-            ,
-                displayName: "使用指南"
-                url: "#guide"
-                active: false
-        ]
-        currentSection = $scope.sections[0]
+        currentSection = $scope.ssItems[0]
 
         $scope.locateToSection = (section)->
             if currentSection

@@ -31,10 +31,11 @@
                 </a>
             </div>
         </div>
-        <div class="item" ng-click="setNotePanelVisible(false, !mailNote, false)">
+        <div class="ui pointing dropdown link item" ng-click="setNotePanelVisible(false, !mailNote, false)" ng-class="{'active': mailNote, 'visible': mailNote}">
             <i class="mail icon"></i>
         </div>
-        <div class="item" ng-click="setNotePanelVisible(false, false, !notificationNote)">
+        <div class="ui pointing dropdown link item" ng-click="setNotePanelVisible(false, false, !notificationNote)"
+            ng-class="{'active': notificationNote, 'visible': notificationNote}">
             <i class="alarm icon"></i>
         </div>
         <div class="item">

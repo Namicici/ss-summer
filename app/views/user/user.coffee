@@ -3,6 +3,32 @@
 angular.module "ss.views"
 
 .controller "ss.views.user", ["$scope", "$location",($scope, $location)->
+    $scope.sections = [
+            displayName:"首页"
+            url: "#home"
+            active: true
+        ,
+            displayName: "办事大厅"
+            url: "#deal"
+            active: false
+        ,
+            displayName: "公告大厅"
+            url: "#announce"
+            active: false
+        ,
+            displayName: "监督大厅"
+            url: "#supervise"
+            active: false
+        ,
+            displayName: "咨询与服务"
+            url: "#service"
+            active: false
+        ,
+            displayName: "使用指南"
+            url: "#guide"
+            active: false
+    ]
+
     $scope.departments = [
             displayName: "卫生局"
             url: "/health"

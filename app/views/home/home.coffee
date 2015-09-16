@@ -59,25 +59,15 @@ angular.module "ss.views"
         ]
     }
 
-    setNotePannelStyle = (right)->
-        element = document.getElementById "ssNotePannel"
-        element.style.top = "44px"
-        element.style.left = "auto"
-        element.style.bottom = "auto"
-        element.style.right =  right
-
     $scope.setNotePanelVisible = (isRequestNote, isMailNote, isNotificationNote)->
         $scope.requestNote = isRequestNote
         if $scope.requestNote
-            setNotePannelStyle "260px"
             $scope.pannelData = $scope.requests
         $scope.mailNote = isMailNote
         if $scope.mailNote
-            setNotePannelStyle "200px"
             $scope.pannelData = $scope.mailNotifications
         $scope.notificationNote = isNotificationNote
         if $scope.notificationNote
-            setNotePannelStyle "150px"
             $scope.pannelData = $scope.notifications
 
 ]

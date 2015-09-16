@@ -4,23 +4,13 @@
             <i class="sidebar icon"></i>Menu
         </a>
         <div class="right menu">
-            <div class="ui pointing dropdown link item" ng-click="setNotePanelVisible(!requestNote, false, false)"
+            <div class="ui pointing dropdown link item" ng-mouseover="setNotePanelVisible(true, false, false)" ng-mouseleave="setNotePanelVisible(false, false, false)"
                 ng-class="{'active': requestNote, 'visible': requestNote}">
                 <i class="user icon"></i>
             </div>
-            <div class="ui pointing dropdown link item" ng-click="setNotePanelVisible(false, !mailNote, false)" ng-class="{'active': mailNote, 'visible': mailNote}">
-                <i class="mail icon"></i>
-            </div>
-            <div class="ui pointing dropdown link item" ng-click="setNotePanelVisible(false, false, !notificationNote)"
-                ng-class="{'active': notificationNote, 'visible': notificationNote}">
-                <i class="alarm icon"></i>
-            </div>
-            <div class="item">
-                <img class="ui avatar image" src="./images/matthew.png">
-                <span>Matthew</span>
-                <i class="angle down icon"></i>
-            </div>
-            <div id="ssNotePannel" class="ui flowing popup bottom right transition" ng-class="{'animating scale in visible': requestNote || mailNote || notificationNote, 'animating scale out visible': !requestNote && !mailNote && !notificationNote}">
+            <div class="ui flowing popup bottom right transition"
+                ng-class="{'animating scale in visible': requestNote, 'animating scale out visible': !requestNote}"
+                style="top:44px;left: auto; bottom: auto; right: 260px;">
                 <div class="item" style="padding:0;">
                     <a class="ui header">{{pannelData.header}}</a>
                 </div>
@@ -43,6 +33,71 @@
                         </div>
                     </a>
                 </div>
+            </div>
+            <div class="ui pointing dropdown link item" ng-mouseover="setNotePanelVisible(false, true, false)" ng-mouseleave="setNotePanelVisible(false, false, false)"
+                ng-class="{'active': mailNote, 'visible': mailNote}">
+                <i class="mail icon"></i>
+            </div>
+            <div class="ui flowing popup bottom right transition"
+                ng-class="{'animating scale in visible': mailNote, 'animating scale out visible': !mailNote}"
+                style="top:44px;left: auto; bottom: auto; right: 200px;">
+                <div class="item" style="padding:0;">
+                    <a class="ui header">{{pannelData.header}}</a>
+                </div>
+                <div class="ui relaxed list">
+                    <a class="item" ng-repeat="request in pannelData.content">
+                        <img class="ui avatar image" src="./images/{{request.img}}">
+                        <div class="content">
+                            <div class="header">{{request.summary}}</div>
+                            <div class="description">{{request.datetime}}</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="item ss-right-floated" style="padding:0;">
+                    <a class="ui header">
+                        <div class="content">
+                            <div class="sub header">
+                                <span>More</span>
+                                <i class="angle right icon"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="ui pointing dropdown link item" ng-mouseover="setNotePanelVisible(false, false, true)" ng-mouseleave="setNotePanelVisible(false, false, false)"
+                ng-class="{'active': notificationNote, 'visible': notificationNote}">
+                <i class="alarm icon"></i>
+            </div>
+            <div class="ui flowing popup bottom right transition"
+                ng-class="{'animating scale in visible': notificationNote,'animating scale out visible': !notificationNote}"
+                style="top:44px;left: auto; bottom: auto; right: 150px;">
+                <div class="item" style="padding:0;">
+                    <a class="ui header">{{pannelData.header}}</a>
+                </div>
+                <div class="ui relaxed list">
+                    <a class="item" ng-repeat="request in pannelData.content">
+                        <img class="ui avatar image" src="./images/{{request.img}}">
+                        <div class="content">
+                            <div class="header">{{request.summary}}</div>
+                            <div class="description">{{request.datetime}}</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="item ss-right-floated" style="padding:0;">
+                    <a class="ui header">
+                        <div class="content">
+                            <div class="sub header">
+                                <span>More</span>
+                                <i class="angle right icon"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <img class="ui avatar image" src="./images/matthew.png">
+                <span>Matthew</span>
+                <i class="angle down icon"></i>
             </div>
         </div>
     </div>

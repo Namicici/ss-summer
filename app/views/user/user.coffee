@@ -2,7 +2,18 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.user", ["$scope", "$location",($scope, $location)->
+.controller "ss.views.user", ["$scope", "$location", "$http", ($scope, $location, $http)->
+    getView = ()->
+        httpConfig =
+            method: "get"
+            url: "api/view/model"
+        $http httpConfig
+
+
+    promise = getView()
+    promise.then (data)->
+        $scope.viewData = data
+
     $scope.sections = [
             displayName:"首页"
             url: "#home"

@@ -11,7 +11,7 @@
                 ng-class="{'animating scale in visible': requestNote, 'animating scale out visible': !requestNote}"
                 style="top:44px;left: auto; bottom: auto; right: 260px; display: block !important;">
                 <div class="item" style="padding:0;">
-                    <a class="ui header">{{pannelData.header}}</a>
+                    <a class="ui header">{{requests.header}}</a>
                 </div>
                 <div class="ui relaxed list">
                     <a class="item" ng-repeat="request in requests.content">
@@ -33,6 +33,7 @@
                     </a>
                 </div>
             </div>
+
             <div class="ui pointing dropdown link item visible" ng-click="mailNote = true" outside-click="mailNote = false"
                 ng-class="{'active': mailNote}">
                 <i class="mail icon"></i>
@@ -41,7 +42,7 @@
                 ng-class="{'animating scale in visible': mailNote, 'animating scale out visible': !mailNote}"
                 style="top:44px;left: auto; bottom: auto; right: 200px;">
                 <div class="item" style="padding:0;">
-                    <a class="ui header">{{pannelData.header}}</a>
+                    <a class="ui header">{{mailNotifications.header}}</a>
                 </div>
                 <div class="ui relaxed list">
                     <a class="item" ng-repeat="request in mailNotifications.content">
@@ -63,6 +64,7 @@
                     </a>
                 </div>
             </div>
+
             <div class="ui pointing dropdown link item" ng-click="notificationNote = true" outside-click="notificationNote = false"
                 ng-class="{'active': notificationNote, 'visible': notificationNote}">
                 <i class="alarm icon"></i>
@@ -71,7 +73,7 @@
                 ng-class="{'animating scale in visible': notificationNote,'animating scale out visible': !notificationNote}"
                 style="top:44px;left: auto; bottom: auto; right: 150px;">
                 <div class="item" style="padding:0;">
-                    <a class="ui header">{{pannelData.header}}</a>
+                    <a class="ui header">{{notifications.header}}</a>
                 </div>
                 <div class="ui relaxed list">
                     <a class="item" ng-repeat="request in notifications.content">
@@ -93,11 +95,61 @@
                     </a>
                 </div>
             </div>
-            <div class="item">
+
+            <div class="ui dropdown link item" ng-click="userNote = true" outside-click="userNote = false"
+                ng-class="{'active': userNote, 'visible': userNote}">
                 <img class="ui avatar image" src="./images/matthew.png">
                 <span>Matthew</span>
                 <i class="angle down icon"></i>
             </div>
+            <div class="ui flowing popup bottom right transition"
+                ng-class="{'animating scale in visible': userNote,'animating scale out visible': !userNote}"
+                style="top:44px;left: auto; bottom: auto; right: 16px;">
+                <div class="item" style="padding:8px;">
+                    <h6 class="ui header" style="margin-bottom: 0;">
+                        <i class="user icon"></i>
+                        <div class="content">
+                            <div class="sub header">Profile</div>
+                        </div>
+                    </h6>
+                    <div class="ui teal right mini label" style="margin-left: 62px;">86%</div>
+                </div>
+                <div class="item" style="padding:8px;">
+                    <h6 class="ui header" style="margin-bottom: 0;">
+                        <i class="checkmark icon"></i>
+                        <div class="content">
+                            <div class="sub header">Tasks</div>
+                        </div>
+                    </h6>
+                    <div class="ui red right mini label" style="margin-left: 68px;">new</div>
+                </div>
+                <div class="item" style="padding:8px;">
+                    <h6 class="ui header" style="margin-bottom: 0;">
+                        <i class="setting icon"></i>
+                        <div class="content">
+                            <div class="sub header">Setting</div>
+                        </div>
+                    </h6>
+                </div>
+                <div class="ui divider"></div>
+                <div class="item" style="padding:8px;">
+                    <h6 class="ui header" style="margin-bottom: 0;">
+                        <i class="lock icon"></i>
+                        <div class="content">
+                            <div class="sub header">Setting</div>
+                        </div>
+                    </h6>
+                </div>
+                <div class="item" style="padding:8px;">
+                    <h6 class="ui header" style="margin-bottom: 0;">
+                        <i class="sign out icon"></i>
+                        <div class="content">
+                            <div class="sub header">Setting</div>
+                        </div>
+                    </h6>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

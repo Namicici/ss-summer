@@ -108,3 +108,38 @@ angular.module("ss.components").directive("ssMenu", [
     };
   }
 ]);
+
+"use strict";
+angular.module("ss.components").directive("outsideClick", [
+  '$document', '$parse', function($document, $parse) {
+    return {
+      link: {
+        pre: function($scope, $element, $attributes) {},
+        post: function($scope, $element, $attributes) {
+          var onDocumentClick;
+          onDocumentClick = function(event) {
+            var child, children, i, isChild, isInside, isSelf, len;
+            isChild = false;
+            children = $element.children(event.target);
+            for (i = 0, len = children.length; i < len; i++) {
+              child = children[i];
+              if (child === event.target) {
+                isChild = true;
+                return;
+              }
+            }
+            isSelf = $element[0] === event.target;
+            isInside = isChild || isSelf;
+            if (!isInside) {
+              return $scope.$apply($attributes.outsideClick);
+            }
+          };
+          $document.on("click", onDocumentClick);
+          return $element.on('$destroy', function() {
+            return $document.off("click", onDocumentClick);
+          });
+        }
+      }
+    };
+  }
+]);

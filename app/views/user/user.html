@@ -6,9 +6,9 @@
         <ss-menu ss-items="sections"></ss-menu>
     </div>
     <div class="ss-user-content" ng-if="currentSection.url == '#deal'">
-        <div class="ss-user-left" style="padding: 0 4px;">
-            <!--img class="ss-user-image" src="./images/test_tree.png"></img-->
-            <div class="ui two column left aligned padded grid">
+        <div class="ss-user-left">
+            <img class="ss-user-image" src="./images/business hall.png"></img>
+            <div class="ui two column left aligned padded grid" style="padding: 0 4px;">
                 <div class="column ss-department-label" ng-click="locateToDepartment(department)" ng-repeat="department in departments">
                     <i class="red cube icon"></i>
                     {{department.displayName}}

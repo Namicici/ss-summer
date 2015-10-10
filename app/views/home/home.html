@@ -4,12 +4,12 @@
             <i class="sidebar icon"></i>Menu
         </a>
         <div class="right menu">
-            <div class="ui pointing dropdown link item visible" ng-click="requestNote = true" outside-click = "requestNote = false" ng-class="{'active': requestNote}">
+            <div class="ui pointing dropdown link item visible" ng-click="requestNote = true; notFirstLoadRequestNote = true" outside-click = "requestNote = false" ng-class="{'active': requestNote}" >
                 <i class="user icon"></i>
             </div>
             <div class="ui flowing popup bottom right transition"
-                ng-class="{'animating scale in visible': requestNote, 'animating scale out visible': !requestNote}"
-                style="top:44px;left: auto; bottom: auto; right: 260px; display: block !important;">
+                ng-class="{'animating scale in visible': requestNote && notFirstLoadRequestNote, 'animating scale out visible': !requestNote && notFirstLoadRequestNote}"
+                style="top:44px;left: auto; bottom: auto; right: 260px; display: block !important;" ng-if="notFirstLoadRequestNote">
                 <div class="item" style="padding:0;">
                     <a class="ui header">{{requests.header}}</a>
                 </div>
@@ -34,13 +34,12 @@
                 </div>
             </div>
 
-            <div class="ui pointing dropdown link item visible" ng-click="mailNote = true" outside-click="mailNote = false"
-                ng-class="{'active': mailNote}">
+            <div class="ui pointing dropdown link item visible" ng-click="mailNote = true; notFirstLoadMailNote = true" outside-click="mailNote = false" ng-class="{'active': mailNote}">
                 <i class="mail icon"></i>
             </div>
             <div class="ui flowing popup bottom right transition"
-                ng-class="{'animating scale in visible': mailNote, 'animating scale out visible': !mailNote}"
-                style="top:44px;left: auto; bottom: auto; right: 200px;">
+                ng-class="{'animating scale in visible': mailNote && notFirstLoadMailNote, 'animating scale out visible': !mailNote && notFirstLoadMailNote}"
+                style="top:44px;left: auto; bottom: auto; right: 200px;" ng-if="notFirstLoadMailNote">
                 <div class="item" style="padding:0;">
                     <a class="ui header">{{mailNotifications.header}}</a>
                 </div>
@@ -65,13 +64,13 @@
                 </div>
             </div>
 
-            <div class="ui pointing dropdown link item" ng-click="notificationNote = true" outside-click="notificationNote = false"
+            <div class="ui pointing dropdown link item" ng-click="notificationNote = true; notFirstLoadNotificationNote = true" outside-click="notificationNote = false"
                 ng-class="{'active': notificationNote, 'visible': notificationNote}">
                 <i class="alarm icon"></i>
             </div>
             <div class="ui flowing popup bottom right transition"
-                ng-class="{'animating scale in visible': notificationNote,'animating scale out visible': !notificationNote}"
-                style="top:44px;left: auto; bottom: auto; right: 150px;">
+                ng-class="{'animating scale in visible': notificationNote && notFirstLoadNotificationNote,'animating scale out visible': !notificationNote && notFirstLoadNotificationNote}"
+                style="top:44px;left: auto; bottom: auto; right: 150px;" ng-if="notFirstLoadNotificationNote">
                 <div class="item" style="padding:0;">
                     <a class="ui header">{{notifications.header}}</a>
                 </div>
@@ -96,15 +95,15 @@
                 </div>
             </div>
 
-            <div class="ui dropdown link item" ng-click="userNote = true" outside-click="userNote = false"
+            <div class="ui dropdown link item" ng-click="userNote = true; notFirstLoadUserNote = true" outside-click="userNote = false"
                 ng-class="{'active': userNote, 'visible': userNote}">
                 <img class="ui avatar image" src="./images/matthew.png">
                 <span>Matthew</span>
                 <i class="angle down icon"></i>
             </div>
             <div class="ui flowing popup bottom right transition"
-                ng-class="{'animating scale in visible': userNote,'animating scale out visible': !userNote}"
-                style="top:44px;left: auto; bottom: auto; right: 16px;">
+                ng-class="{'animating scale in visible': userNote && notFirstLoadUserNote,'animating scale out visible': !userNote && notFirstLoadUserNote}"
+                style="top:44px;left: auto; bottom: auto; right: 16px;" ng-if="notFirstLoadUserNote">
                 <div class="item" style="padding:8px;">
                     <h6 class="ui header" style="margin-bottom: 0;">
                         <i class="user icon"></i>

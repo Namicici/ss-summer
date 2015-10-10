@@ -2,13 +2,17 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.home", ["$scope",($scope)->
+.controller "ss.views.home", ["$rootScope", "$scope",(rootScope, $scope)->
     $scope.visible = true
+    $scope.firstLoad = true
 
     $scope.$on "ss.components.header-menu.changed", (scope, item, subItem)->
         $scope.item = item
         $scope.subItem = subItem
 
+    $scope.requests = requests
+
+    ###
     $scope.requests = {
         header: "You have 2 requests"
         content:[
@@ -21,6 +25,7 @@ angular.module "ss.views"
                 summary: "Jenny added sissy to group A"
         ]
     }
+    ###
 
     $scope.mailNotifications = {
         header: "You have 4 messages"

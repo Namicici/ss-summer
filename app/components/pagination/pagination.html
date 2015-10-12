@@ -1,0 +1,23 @@
+<div class="ss-pagination">
+    <div class="ss-page-box" ng-click="setCurrentPage(1)">
+        <i class="angle double left icon"></i>
+    </div>
+
+    <div class="ss-page-box" ng-click="setCurrentPage(currentPage - 1)">
+        <i class="angle left icon"></i>
+    </div>
+
+    <div class="ss-page-content">
+        <div class="ss-page-box" ng-repeat="page in pages track by $index" ng-click="setCurrentPage(page)" ng-class="{'ss-selected-page': currentPage == page}">
+            <span>{{page}}</span>
+        </div>
+    </div>
+
+    <div class="ss-page-box" ng-click="setCurrentPage(currentPage + 1)">
+        <i class="angle right icon"></i>
+    </div>
+
+    <div class="ss-page-box" ng-click="setCurrentPage(ssTotalPage)">
+        <i class="angle double right icon"></i>
+    </div>
+</div>

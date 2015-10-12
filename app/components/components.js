@@ -16,6 +16,34 @@ angular.module("ss.components").directive("ssBasicTable", [
 ]);
 
 "use strict";
+angular.module("ss.components").directive("ssMenu", [
+  "$location", function($location) {
+    return {
+      restrict: "EA",
+      templateUrl: "menu/menu.html",
+      scope: {
+        ssItems: "="
+      },
+      controller: [
+        "$scope", function($scope) {
+          var currentSection;
+          currentSection = null;
+          currentSection = $scope.ssItems[0];
+          return $scope.locateToSection = function(section) {
+            if (currentSection) {
+              currentSection.active = false;
+            }
+            currentSection = section;
+            currentSection.active = true;
+            return $scope.$emit("ss.components.menu.selected", section);
+          };
+        }
+      ]
+    };
+  }
+]);
+
+"use strict";
 angular.module("ss.components").directive("ssHeaderMenu", [
   "$location", function($location) {
     return {
@@ -82,34 +110,6 @@ angular.module("ss.components").directive("ssHeaderMenu", [
 ]);
 
 "use strict";
-angular.module("ss.components").directive("ssMenu", [
-  "$location", function($location) {
-    return {
-      restrict: "EA",
-      templateUrl: "menu/menu.html",
-      scope: {
-        ssItems: "="
-      },
-      controller: [
-        "$scope", function($scope) {
-          var currentSection;
-          currentSection = null;
-          currentSection = $scope.ssItems[0];
-          return $scope.locateToSection = function(section) {
-            if (currentSection) {
-              currentSection.active = false;
-            }
-            currentSection = section;
-            currentSection.active = true;
-            return $scope.$emit("ss.components.menu.selected", section);
-          };
-        }
-      ]
-    };
-  }
-]);
-
-"use strict";
 angular.module("ss.components").directive("outsideClick", [
   '$document', '$parse', function($document, $parse) {
     return {
@@ -137,6 +137,71 @@ angular.module("ss.components").directive("outsideClick", [
           return $document.off("click", onDocumentClick);
         });
       }
+    };
+  }
+]);
+
+"use strict";
+angular.module("ss.components").directive("ssPagination", [
+  function() {
+    return {
+      restrict: "EA",
+      templateUrl: "pagination/pagination.html",
+      scope: {
+        ssTotalPage: "="
+      },
+      controller: [
+        "$scope", function($scope) {
+          var initPageBox;
+          $scope.currentPage = 1;
+          $scope.pages = [];
+          initPageBox = function(totalPage) {
+            var i, index, pages, ref;
+            pages = [];
+            if (totalPage <= 6) {
+              for (index = i = 1, ref = totalPage; 1 <= ref ? i <= ref : i >= ref; index = 1 <= ref ? ++i : --i) {
+                pages.push(index);
+              }
+            } else {
+              if ($scope.ssTotalPage - 6 >= $scope.currentPage) {
+                pages.push(1);
+                if ($scope.currentPage === 1 || $scope.currentPage === 2) {
+                  pages.push(2);
+                  pages.push("...");
+                } else {
+                  pages.push("...");
+                  pages.push($scope.currentPage);
+                }
+                pages.push("...");
+                pages.push(totalPage - 1);
+                pages.push(totalPage);
+              } else {
+                pages.push(totalPage - 5);
+                pages.push(totalPage - 4);
+                pages.push(totalPage - 3);
+                pages.push(totalPage - 2);
+                pages.push(totalPage - 1);
+                pages.push(totalPage);
+              }
+            }
+            return $scope.pages = pages;
+          };
+          initPageBox($scope.ssTotalPage);
+          return $scope.setCurrentPage = function(page) {
+            if (page === "...") {
+              return;
+            }
+            if (page <= 0) {
+              $scope.currentPage = 1;
+            } else if (page > $scope.ssTotalPage) {
+              $scope.currentPage = $scope.ssTotalPage;
+            } else {
+              $scope.currentPage = page;
+            }
+            return initPageBox($scope.ssTotalPage);
+          };
+        }
+      ]
     };
   }
 ]);

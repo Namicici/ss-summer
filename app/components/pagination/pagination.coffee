@@ -10,32 +10,38 @@ angular.module "ss.components"
     controller: ["$scope", ($scope)->
         $scope.currentPage = 1
         $scope.pages = []
-        initPageBox = (totalPage)->
+        initPageBox = ()->
             pages = []
-            if totalPage <= 6
-                for index in [1..totalPage]
+            if $scope.ssTotalPage <= 7
+                for index in [1..$scope.ssTotalPage]
                     pages.push index
             else
-                if $scope.ssTotalPage - 6 >= $scope.currentPage
-                    pages.push 1
-                    if $scope.currentPage == 1 or $scope.currentPage == 2
-                        pages.push 2
-                        pages.push "..."
-                    else
-                        pages.push "..."
-                        pages.push $scope.currentPage
+                if $scope.currentPage < 7
+                    for index in [1..7]
+                        pages.push index
                     pages.push "..."
-                    pages.push totalPage - 1
-                    pages.push totalPage
+                else if $scope.currentPage >= $scope.ssTotalPage - 2
+                    pages.push 1
+                    pages.push 2
+                    pages.push "..."
+                    pages.push $scope.currentPage - 2
+                    pages.push $scope.currentPage - 1
+                    pages.push $scope.currentPage
+                    pages.push $scope.currentPage + 1
+                    pages.push $scope.currentPage + 2
                 else
-                    pages.push totalPage - 5
-                    pages.push totalPage - 4
-                    pages.push totalPage - 3
-                    pages.push totalPage - 2
-                    pages.push totalPage - 1
-                    pages.push totalPage
+                    pages.push 1
+                    pages.push 2
+                    pages.push "..."
+                    pages.push $scope.currentPage - 2
+                    pages.push $scope.currentPage - 1
+                    pages.push $scope.currentPage
+                    pages.push $scope.currentPage + 1
+                    pages.push $scope.currentPage + 2
+                    pages.push "..."
+
             $scope.pages = pages
-        initPageBox $scope.ssTotalPage
+        initPageBox()
 
         $scope.setCurrentPage = (page)->
             if page == "..."
@@ -46,7 +52,7 @@ angular.module "ss.components"
                 $scope.currentPage = $scope.ssTotalPage
             else
                 $scope.currentPage = page
-            initPageBox $scope.ssTotalPage
+            initPageBox()
     ]
 
 ]

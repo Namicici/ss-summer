@@ -25,11 +25,11 @@ angular.module "ss.components"
                     pages.push 1
                     pages.push 2
                     pages.push "..."
-                    pages.push $scope.currentPage - 2
-                    pages.push $scope.currentPage - 1
-                    pages.push $scope.currentPage
-                    pages.push $scope.currentPage + 1
-                    pages.push $scope.currentPage + 2
+                    pages.push $scope.ssTotalPage - 4
+                    pages.push $scope.ssTotalPage - 3
+                    pages.push $scope.ssTotalPage - 2
+                    pages.push $scope.ssTotalPage - 1
+                    pages.push $scope.ssTotalPage
                 else
                     pages.push 1
                     pages.push 2

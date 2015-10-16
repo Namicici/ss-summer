@@ -15,7 +15,7 @@ angular.module("ss.components").directive("ssBasicTable", [
           var copyDatas;
           copyDatas = $scope.ssDatas;
           return $scope.onPageChange = function(page) {
-            return $scope.ssDatas = copyDatas.slice(0, +page + 1 || 9e9);
+            return $scope.ssDatas = copyDatas.slice(0, +(page % 7) + 1 || 9e9);
           };
         }
       ]

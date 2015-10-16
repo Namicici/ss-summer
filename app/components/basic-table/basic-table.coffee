@@ -12,6 +12,6 @@ angular.module "ss.components"
         copyDatas = $scope.ssDatas
 
         $scope.onPageChange = (page)->
-            $scope.ssDatas = copyDatas[0..page]
+            $scope.ssDatas = copyDatas[0..page%7]
     ]
 ]

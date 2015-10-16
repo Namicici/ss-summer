@@ -7,6 +7,7 @@ angular.module "ss.components"
     templateUrl: "pagination/pagination.html"
     scope:
         ssTotalPage: "="
+        onPageChange: "&ssChange"
     controller: ["$scope", ($scope)->
         $scope.currentPage = 1
         $scope.pages = []
@@ -53,6 +54,7 @@ angular.module "ss.components"
             else
                 $scope.currentPage = page
             initPageBox()
+            $scope.onPageChange page: page
     ]
 
 ]

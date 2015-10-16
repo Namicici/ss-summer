@@ -10,7 +10,15 @@ angular.module("ss.components").directive("ssBasicTable", [
         ssHeaders: "=",
         ssDatas: "="
       },
-      controller: ["$scope", function($scope) {}]
+      controller: [
+        "$scope", function($scope) {
+          var copyDatas;
+          copyDatas = $scope.ssDatas;
+          return $scope.onPageChange = function(page) {
+            return $scope.ssDatas = copyDatas.slice(0, +page + 1 || 9e9);
+          };
+        }
+      ]
     };
   }
 ]);
@@ -148,7 +156,8 @@ angular.module("ss.components").directive("ssPagination", [
       restrict: "EA",
       templateUrl: "pagination/pagination.html",
       scope: {
-        ssTotalPage: "="
+        ssTotalPage: "=",
+        onPageChange: "&ssChange"
       },
       controller: [
         "$scope", function($scope) {
@@ -203,7 +212,10 @@ angular.module("ss.components").directive("ssPagination", [
             } else {
               $scope.currentPage = page;
             }
-            return initPageBox();
+            initPageBox();
+            return $scope.onPageChange({
+              page: page
+            });
           };
         }
       ]

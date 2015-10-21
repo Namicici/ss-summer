@@ -36,7 +36,10 @@ angular.module("ss.components").directive("ssHeaderMenu", [
         "$scope", function($scope) {
           var childItem;
           childItem = null;
-          $scope.locate = function(item, subItem) {
+          $scope.locateToDashboard = function() {
+            return $location.path("module/layout/menu");
+          };
+          return $scope.locate = function(item, subItem) {
             if (childItem) {
               childItem.active = false;
             }
@@ -44,45 +47,6 @@ angular.module("ss.components").directive("ssHeaderMenu", [
             childItem.active = true;
             return $scope.$emit("ss.components.header-menu.changed", item, subItem);
           };
-          return $scope.headers = [
-            {
-              name: "home",
-              displayName: "Home",
-              icon: "home icon",
-              expanded: false,
-              children: [
-                {
-                  name: "summer",
-                  displayName: "summer lu",
-                  icon: "home icon",
-                  active: false
-                }, {
-                  name: "sissy",
-                  displayName: "sissy li",
-                  icon: "home icon",
-                  active: false
-                }
-              ]
-            }, {
-              name: "users",
-              displayName: "Users",
-              icon: "users icon",
-              expanded: false,
-              children: [
-                {
-                  name: "alex",
-                  displayName: "Alex lu",
-                  icon: "home icon",
-                  active: false
-                }, {
-                  name: "jimmy",
-                  displayName: "Jimmy li",
-                  icon: "home icon",
-                  active: false
-                }
-              ]
-            }
-          ];
         }
       ]
     };

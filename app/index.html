@@ -5,8 +5,9 @@
         <link rel="stylesheet" type="text/css" href="./thirdParty.css">
         <link rel="stylesheet" type="text/css" href="./app.min.css">
     </head>
-    <body>
-        <div class="ss-container" ng-view></div>
+    <body ng-controller="ss.views.base">
+        <div class="ss-container" ui-view></div>
+        <a ui-sref="main"></a>
         <script type="text/javascript" src="thirdParty.js"></script>
         <script type="text/javascript" src="app.min.js"></script>
         <script type="text/javascript" src="templates.js"></script>

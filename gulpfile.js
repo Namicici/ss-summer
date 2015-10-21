@@ -44,7 +44,7 @@ gulp.task("compile:coffee", function(){
 
 gulp.task("copy:thirdParty", function(){
     gulp.src(["./node_modules/angular/angular.min.js",
-        "./node_modules/angular-route/angular-route.min.js",
+        "./node_modules/angular-ui-router/release/angular-ui-router.min.js",
         "./node_modules/jquery/dist/jquery.min.js",
         "./node_modules/semantic-ui-css/semantic.min.js"])
         .pipe(concat("thirdParty.js"))

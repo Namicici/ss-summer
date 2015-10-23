@@ -3,7 +3,9 @@
 
 node_modules/
 bower_components/
-out/
+output/
 app/lib
+css/
+js/
 npm-debug.log
 menu%20api.json.postman_collection

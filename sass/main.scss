@@ -1,10 +1,16 @@
+.ss-content-padding-right{
+    padding-right: $ss-nav-width;
+    transform: scale(1);
+    transition: 0.15s all ease;
+}
+
 .ss-top{
 }
 .ss-nav{
     position: absolute;
     top: 54px;
     left: 0;
-    max-width: 260px;
+    max-width: $ss-nav-width;
     bottom: 0;
 }
 .ss-main{
@@ -14,6 +20,10 @@
     height: 100%;
     bottom: 0;
     left: 0;
+    .logo.image{
+        width: 35px;
+        margin-right: 16px;
+    }
 }
 .ss-left-side{
     left: 0;

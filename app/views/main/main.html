@@ -15,7 +15,7 @@
                 </div>
                 <div class="ui relaxed list">
                     <a class="item" ng-repeat="request in requests.content">
-                        <img class="ui avatar image" src="./images/{{request.img}}">
+                        <img class="ui avatar image" src="images/{{request.img}}">
                         <div class="content">
                             <div class="header">{{request.summary}}</div>
                             <div class="description">{{request.datetime}}</div>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="ui relaxed list">
                     <a class="item" ng-repeat="request in mailNotifications.content">
-                        <img class="ui avatar image" src="./images/{{request.img}}">
+                        <img class="ui avatar image" src="images/{{request.img}}">
                         <div class="content">
                             <div class="header">{{request.summary}}</div>
                             <div class="description">{{request.datetime}}</div>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="ui relaxed list">
                     <a class="item" ng-repeat="request in notifications.content">
-                        <img class="ui avatar image" src="./images/{{request.img}}">
+                        <img class="ui avatar image" src="images/{{request.img}}">
                         <div class="content">
                             <div class="header">{{request.summary}}</div>
                             <div class="description">{{request.datetime}}</div>
@@ -97,7 +97,7 @@
 
             <div class="ui dropdown link item" ng-click="userNote = true; notFirstLoadUserNote = true" outside-click="userNote = false"
                 ng-class="{'active': userNote, 'visible': userNote}">
-                <img class="ui avatar image" src="./images/matthew.png">
+                <img class="ui avatar image" src="images/matthew.png">
                 <span>Matthew</span>
                 <i class="angle down icon"></i>
             </div>
@@ -156,11 +156,12 @@
     <div class="ui bottom attached segment pushable" style="border: none;">
         <div class="ui primary inverted left inline vertical sidebar menu transition" ng-class="{'animating uncover visible': visible, 'animating uncover': !visible}">
             <div class="ui inverted vertical">
-                <a class="item" ui-sref="main.dashboard">
-                    <div class="header">
-                        <i class="large teal dashboard icon"></i>Dashboard
-                    </div>
-                </a>
+                <div class="item">
+                    <a class="ui logo icon image"  ui-sref="main.dashboard">
+                        <img src="images/logo.png"></img>
+                    </a>
+                    <a ui-sref="main.dashboard"><b>Dashboard</b></a>
+                </div>
                 <div class="item" ng-repeat = "item in headers">
                     <div class="header">
                         <i class="{{item.icon}}"></i>
@@ -175,7 +176,7 @@
             </div>
 
         </div>
-        <div class="pusher">
+        <div class="pusher" ng-class="{'animating uncover ss-content-padding-right': visible}">
             <div class="ui basic segment">
                 <div ui-view></div>
             </div>

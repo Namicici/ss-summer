@@ -6,7 +6,9 @@ module.exports =
         source:
             templates: ["app/**/*.html"]
             sass: "sass/app.scss"
-            coffee: ["app/app.src.coffee", "app/**/*.coffee"]
+            coffee: ["app/app.src.coffee", "app/**/*.coffee", "!app/**/*.e2e.coffee", "!app/**/*.spec.coffee"]
+            testCoffee: [ "app/**/*.spec.coffee"]
+            scenarioCoffee: ["app/**/*.e2e.coffee"]
         dist:
             js: "./js"
             css: "./css"

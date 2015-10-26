@@ -10,7 +10,7 @@ angular.module "ss.components"
     controller: ["$scope", ($scope)->
         childItem = null
         $scope.locateToDashboard = ()->
-            $location.path "module/layout/menu"
+            $location.path "menu"
         $scope.locate = (item, subItem)->
             if childItem
                 childItem.active = false

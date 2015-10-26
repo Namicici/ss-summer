@@ -3,7 +3,8 @@
 angular.module "ss", [
     "ui.router",
     "ss.components",
-    "ss.views"
+    "ss.views",
+    "ss.services"
 ]
 
 .config ["$stateProvider", "$urlRouterProvider", ($stateProvider, $urlRouterProvider)->
@@ -16,12 +17,12 @@ angular.module "ss", [
         templateUrl: "app/views/main/main.html"
         controller: "ss.views.main"
     .state "main.dashboard",
-        url: "module/layout/menu"
+        url: "menu"
         templateUrl: "app/views/dashboard/dashboard.html"
         controller: "ss.views.dashboard"
 
     .state "main.menu",
-        url: "module/layout/menu/:name"
+        url: "menu/:name"
         templateUrl: ($stateParams)->
             console.log "templateurl: " + $stateParams.name
             return "app/views/menus/" + $stateParams.name + ".html"

@@ -1,0 +1,2 @@
+
+angular.module "ss.services", []

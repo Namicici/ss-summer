@@ -2,9 +2,16 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.main", ["$rootScope", "$scope",(rootScope, $scope)->
+.controller "ss.views.main", ["$rootScope", "$scope", "ss.services.menus", (rootScope, $scope, menuService)->
     $scope.visible = true
     $scope.firstLoad = true
+
+    getAllMenus = ()->
+        promise = menuService.get()
+        promise.then (data)->
+            $scope.headers = data
+        , (msg)->
+    getAllMenus()
 
     $scope.$on "ss.components.header-menu.changed", (scope, item, subItem)->
         $scope.item = item
@@ -26,39 +33,6 @@ angular.module "ss.views"
         ]
     }
     ###
-    $scope.headers = [
-                name: "home"
-                displayName: "Home"
-                icon: "home icon"
-                expanded: false
-                children:[
-                    name: "summer"
-                    displayName: "summer lu"
-                    icon: "home icon"
-                    active: false
-                ,
-                    name: "sissy"
-                    displayName: "sissy li"
-                    icon: "home icon"
-                    active: false
-                ]
-            ,
-                name: "users"
-                displayName: "Users"
-                icon: "users icon"
-                expanded: false
-                children:[
-                    name: "alex"
-                    displayName: "Alex lu"
-                    icon: "home icon"
-                    active: false
-                ,
-                    name: "jimmy"
-                    displayName: "Jimmy li"
-                    icon: "home icon"
-                    active: false
-                ]
-            ]
 
     $scope.mailNotifications = {
         header: "You have 4 messages"

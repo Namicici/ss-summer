@@ -48,8 +48,7 @@
     "build": "gulp build",
     "prestart": "gulp build",
     "start": "node server.js",
-    "prepublish": "gulp build",
-    "publish": "gulp publish",
+    "publish": "npm run prebuild && gulp publish",
     "pretest": "gulp build",
     "test": "karma start karma.conf.js"
   }

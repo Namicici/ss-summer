@@ -10,8 +10,8 @@ paths = require("../config").paths
 gulp.task "usemin", ["compile"], ()->
     gulp.src "./index.html"
     .pipe usemin
-        appJs: uglify()
-        appCss: minify()
-        thirdPartyJs: uglify()
-        thirdPartyCss: minify()
+        appJs: [uglify()]
+        appCss: [minify()]
+        thirdPartyJs: [uglify()]
+        thirdPartyCss: [minify()]
     .pipe gulp.dest paths.dist.publish

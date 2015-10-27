@@ -3,6 +3,7 @@ module.exports =
         clean:
             js: ["./js"]
             css: ["./css"]
+            publish: ["./output"]
         source:
             templates: ["app/**/*.html"]
             sass: "sass/app.scss"

@@ -7,11 +7,11 @@ usemin = require "gulp-usemin"
 
 paths = require("../config").paths
 
-gulp.task "usemin", [], ()->
+gulp.task "usemin", ["compile"], ()->
     gulp.src "./index.html"
-        .pipe usemin
-            appJs: uglify()
-            appCss: minify()
-            thirdPartyJs: uglify()
-            thirdPartyCss: minify()
-        .pipe gulp.dest paths.dist.publish
+    .pipe usemin
+        appJs: uglify()
+        appCss: minify()
+        thirdPartyJs: uglify()
+        thirdPartyCss: minify()
+    .pipe gulp.dest paths.dist.publish

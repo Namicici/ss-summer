@@ -2,7 +2,7 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.main", ["$rootScope", "$scope", "ss.services.menus", "$http",(rootScope, $scope, menuService, $http)->
+.controller "ss.views.main", ["$rootScope", "$scope", "ss.services.menus", "$http", (rootScope, $scope, menuService, $http)->
     $scope.visible = true
     $scope.firstLoad = true
     expandGroup = null

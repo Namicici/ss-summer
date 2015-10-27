@@ -2,16 +2,30 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.main", ["$rootScope", "$scope", "ss.services.menus", (rootScope, $scope, menuService)->
+.controller "ss.views.main", ["$rootScope", "$scope", "ss.services.menus", "$http",(rootScope, $scope, menuService, $http)->
     $scope.visible = true
     $scope.firstLoad = true
-
-    getAllMenus = ()->
-        promise = menuService.get()
+    expandGroup = null
+    getAllGroups = ()->
+        promise = menuService.get(-1)
         promise.then (data)->
-            $scope.headers = data
+            $scope.groups = data
         , (msg)->
-    getAllMenus()
+            console.log msg
+    getMenus = (parentId)->
+        promise = menuService.get(parentId)
+        promise.then (data)->
+            $scope.menus = data
+        , (msg)->
+            console.log msg
+    getAllGroups()
+
+    $scope.expandGroup = (group)->
+        if expandGroup
+            expandGroup.expand = false
+        expandGroup = group
+        group.expand = true
+        getMenus group.id
 
     $scope.$on "ss.components.header-menu.changed", (scope, item, subItem)->
         $scope.item = item

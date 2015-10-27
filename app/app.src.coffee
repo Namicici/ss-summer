@@ -22,13 +22,14 @@ angular.module "ss", [
         controller: "ss.views.dashboard"
 
     .state "main.menu",
-        url: "menu/:name"
+        url: "menu/:action/:target"
         templateUrl: ($stateParams)->
-            console.log "templateurl: " + $stateParams.name
-            return "app/views/menus/" + $stateParams.name + ".html"
+            console.log "templateurl: " + $stateParams.target
+            return "app/views/menus/" + $stateParams.target + ".html"
+
         controller: ["$stateParams", ($stateParams)->
-            console.log "controller: " + $stateParams.name
-            return "ss.views." + $stateParams.name
+            console.log "controller: " + $stateParams.action
+            return "ss.views." + $stateParams.action
         ]
 
     .state "user",

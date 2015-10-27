@@ -6,14 +6,14 @@ angular.module "ss.services"
         http:(httpConfig)->
             deferred = $q.defer()
             $http httpConfig
-            .then (data)->
+            .success (data)->
                 if !data.success
                     msg = {}
                     msg.code = data.code
                     msg.message = data.message
                     deferred.reject msg
                 else
-                    deferred.resove data.data
+                    deferred.resolve data.data
             , (data, statusCode)->
                 msg = {}
                 msg.code = statusCode

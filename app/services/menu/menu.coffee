@@ -2,9 +2,9 @@
 
 angular.module "ss.services"
 .service "ss.services.menus", ["ss.services.base", (baseService)->
-    get: ()->
+    get: (parentId)->
         httpConfig =
             method: "GET"
-            url: "module/layout/menu/query"
+            url: "/module/layout/menus/#{parentId}"
         return baseService.http httpConfig
 ]

@@ -1,7 +1,20 @@
+
 .ss-content-padding-right{
+    transition-property: padding-right;
+    transition-duration: 2s;
+    transition-delay: 0s;
     padding-right: $ss-nav-width;
-    transform: scale(1);
-    transition: 0.15s all ease;
+    /*-moz-transition: padding-right 3s ease-in;
+     -o-transition: padding-right  3s ease-in;
+     -webkit-transition: padding-right 3s ease-in;
+     transition: padding-right  3s ease-in;*/
+}
+.ss-content-padding-right-out{
+    padding-right: 0;
+    -moz-transition: padding-right 3s ease-out;
+     -o-transition: padding-right  3s ease-out;
+     -webkit-transition: padding-right 3s ease-out;
+     transition: padding-right  3s ease-out;
 }
 
 .ss-top{
@@ -24,6 +37,7 @@
         width: 35px;
         margin-right: 16px;
     }
+
 }
 .ss-left-side{
     left: 0;

@@ -156,27 +156,27 @@
     <div class="ui bottom attached segment pushable" style="border: none;">
         <div class="ui primary inverted left inline vertical sidebar menu transition" ng-class="{'animating uncover visible': visible, 'animating uncover': !visible}">
             <div class="ui inverted vertical">
-                <div class="item">
+                <div class="item ss-pointer-hover">
                     <a class="ui logo icon image"  ui-sref="main.dashboard">
                         <img src="images/logo.png"></img>
                     </a>
                     <a ui-sref="main.dashboard"><b>Dashboard</b></a>
                 </div>
-                <div class="item" ng-repeat = "item in headers">
-                    <div class="header">
-                        <i class="{{item.icon}}"></i>
-                        {{item.displayName}}
+                <div class="item" ng-repeat = "group in groups">
+                    <div class="header ss-pointer-hover" ng-click="expandGroup(group)">
+                        <i class="{{group.icon}}"></i>
+                        {{group.text}}
                     </div>
-                    <div class="menu" ng-repeat="subItem in item.children">
-                        <a class="item" ui-sref="main.menu({name: subItem.name})" ng-class="{'active': subItem.active}">
-                            {{subItem.displayName}}
+                    <div class="menu" ng-repeat="menu in menus" ng-if="group.expand">
+                        <a class="item" ui-sref="main.menu({action: menu.attributes.action, target: menu.attributes.hrefTarget})" ng-class="{'active': menu.active}">
+                            {{menu.text}}
                         </a>
                     </div>
                 </div>
             </div>
 
         </div>
-        <div class="pusher" ng-class="{'animating uncover ss-content-padding-right': visible}">
+        <div class="pusher" ng-class="{'animating uncover ss-content-padding-right': visible, 'animating uncover ss-content-padding-right-out': !visible}">
             <div class="ui basic segment">
                 <div ui-view></div>
             </div>

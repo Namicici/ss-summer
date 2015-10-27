@@ -26,3 +26,8 @@ $ss-nav-width: 260px;
 .ss-clear-padding{
     padding: 0;
 }
+.ss-pointer-hover{
+    &:hover{
+        cursor: pointer;
+    }
+}

@@ -6,7 +6,7 @@ gulp.task "publish", ["usemin"], ()->
     gulp.src ["app/**/*.html", "app/**/*.png"]
     .pipe gulp.dest "output/app"
 
-    gulp.src ["js/**/*.*.js", "!js/mocks.libs.js"]
+    gulp.src ["js/**/*.js", "!js/mocks.libs.js"]
     .pipe gulp.dest "output/js"
 
     gulp.src ["css/**/*"]

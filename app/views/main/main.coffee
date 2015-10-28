@@ -2,7 +2,7 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.main", ["$rootScope", "$scope", "ss.services.menus", "$http", (rootScope, $scope, menuService, $http)->
+.controller "ss.views.main", ["$rootScope", "$scope", "ss.services.menus", "$http", "ss.services.auth", (rootScope, $scope, menuService, $http, authService)->
     $scope.visible = true
     $scope.firstLoad = true
     expandGroup = null
@@ -19,6 +19,8 @@ angular.module "ss.views"
         , (msg)->
             console.log msg
     getAllGroups()
+
+    $scope.user = authService.getUser()
 
     $scope.expandGroup = (group)->
         if expandGroup

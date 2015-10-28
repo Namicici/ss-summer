@@ -33,7 +33,7 @@ angular.module "ss", [
         ]
 
     .state "user",
-        url:"views/user"
+        url:"/user"
         templateUrl: "app/views/user/user.html"
         controller: "ss.views.user"
     ###

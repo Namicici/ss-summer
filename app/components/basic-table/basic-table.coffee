@@ -4,7 +4,7 @@ angular.module "ss.components"
 
 .directive "ssBasicTable", [()->
     restrict: "EA"
-    templateUrl: "basic-table/basic-table.html"
+    templateUrl: "app/components/basic-table/basic-table.html"
     scope:
         ssHeaders: "="
         ssDatas: "="

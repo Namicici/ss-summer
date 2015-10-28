@@ -2,12 +2,21 @@
 
 angular.module "ss", [
     "ui.router",
+    "LocalStorageModule",
     "ss.components",
     "ss.views",
     "ss.services"
 ]
 
-.config ["$stateProvider", "$urlRouterProvider", ($stateProvider, $urlRouterProvider)->
+.run ["$rootScope", "ss.services.auth", "$location", ($rootScope, authService, $location)->
+    $rootScope.$on "$stateChangeStart" ,(event,next,stateParams)->
+        if not next.anonymous and not authService.isLogin()
+            $location.path '/login'
+]
+
+.config ["$stateProvider", "$urlRouterProvider", "localStorageServiceProvider", ($stateProvider, $urlRouterProvider, localStorageServiceProvider)->
+
+    localStorageServiceProvider.setPrefix "ss"
 
     $urlRouterProvider.otherwise "/"
 
@@ -36,9 +45,9 @@ angular.module "ss", [
         url:"/user"
         templateUrl: "app/views/user/user.html"
         controller: "ss.views.user"
-    ###
-    .when "/views/user/deal",
-        templateUrl: "./views/user/deal/deal.html"
-        controller: "ss.views.deal"
-    ###
+
+    .state "login",
+        url:"/login"
+        templateUrl: "app/views/login/login.html"
+        controller: "ss.views.login"
 ]

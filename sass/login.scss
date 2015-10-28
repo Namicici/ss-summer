@@ -1,0 +1,42 @@
+.ss-login{
+    background: #3F5163;
+    height: 100%;
+    width: 100%;
+    .ss-title{
+        text-align: center;
+        margin: auto;
+        padding-top: 64px;
+        font-size: 20px;
+        color: #CEDDE0;
+        margin-bottom: 48px;
+    }
+    .ss-login-contents{
+        margin: auto;
+        width: 400px;
+        height: 280px;
+        background: white;
+        .ss-header{
+            font-size: 24px;
+            color: #4DAF36;
+            text-align: center;
+            padding-top: 28px;
+        }
+        .ss-field{
+            margin-top:32px;
+            input{
+                height: 32px;
+                outline: none;
+                border: none;
+                border-bottom: solid 1px #D9DEDE;
+                width: 96%;
+                padding: 0 8px;
+                /* margin: auto; */
+                margin-left: 2%;
+            }
+        }
+        .ss-login-button{
+            margin-left: 2%;
+            margin-top: 32px;
+        }
+    }
+}

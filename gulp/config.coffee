@@ -7,7 +7,7 @@ module.exports =
         source:
             templates: ["app/**/*.html"]
             sass: "sass/app.scss"
-            coffee: ["app/app.src.coffee", "app/**/*.coffee", "!app/**/*.e2e.coffee", "!app/**/*.spec.coffee"]
+            coffee: ["app/app.src.coffee", "app/**/module.coffee", "app/**/*.coffee", "!app/**/*.e2e.coffee", "!app/**/*.spec.coffee"]
             testCoffee: [ "app/**/*.spec.coffee"]
             scenarioCoffee: ["app/**/*.e2e.coffee"]
         dist:
@@ -15,7 +15,7 @@ module.exports =
             css: "./css"
             publish: "./output"
         thirdParty:
-            js: ["libs/angular.min.js", "libs/angular-route.min.js", "libs/angular-ui-router.min.js"]
+            js: ["libs/angular.min.js", "libs/angular-route.min.js", "libs/angular-ui-router.min.js", "libs/angular-local-storage.min.js"]
             css:["libs/semantic.min.css"]
             fonts:["libs/assets/**/*.*"]
             themes: ["libs/themes/**/*.*"]

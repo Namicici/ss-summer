@@ -127,6 +127,11 @@ function route(app){
         else if (req.param("parentId") == 86)
             res.status(200).send(menus);
     });
+
+
+    app.post("/login.do", function(req, res, next){
+        res.status(200).send({"success":true});
+    });
 };
 
 exports.route = route

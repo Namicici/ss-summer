@@ -1,14 +1,17 @@
 <div class="ss-login">
     <div class="ss-title">管理系统</div>
-    <form name="formLogin" class="ss-login-contents">
-        <div class="ss-header">Log In</div>
-        <div class="ss-field">
-            <input type="text" ng-model="username" placeholder="用户名" ng-required="true"/>
-        </div>
-        <div class="ss-field">
-            <input type="password" ng-model="password" placeholder="密码" ng-required="true"/>
-        </div>
-        <button class="positive ui button ss-login-button" ng-click="logon(username, password)" ng-disabled="formLogin.$invalid">Login</button>
-    </form>
+    <div class="ss-login-contents">
+        <form name="formLogin">
+            <div class="ss-header">登录</div>
+            <div class="ss-field">
+                <input type="text" ng-model="username" placeholder="用户名" ng-required="true"/>
+            </div>
+            <div class="ss-field">
+                <input type="password" ng-model="password" placeholder="密码" ng-required="true"/>
+            </div>
+            <button class="positive ui button ss-login-button" ng-click="logon(username, password)" ng-disabled="formLogin.$invalid">Login</button>
+        </form>
+        <div class="ss-create-account">注册</div>
+    </div>
 
 </div>

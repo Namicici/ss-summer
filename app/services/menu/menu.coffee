@@ -2,9 +2,15 @@
 
 angular.module "ss.services"
 .service "ss.services.menus", ["ss.services.base", (baseService)->
-    get: (parentId)->
+    getMenus: (parentId)->
         httpConfig =
             method: "GET"
-            url: "/module/layout/menus/#{parentId}"
+            url: "/dashboard/menu/#{parentId}"
+        return baseService.http httpConfig
+
+    getUser: ()->
+        httpConfig =
+            method: "GET"
+            url: "/dashboard.me"
         return baseService.http httpConfig
 ]

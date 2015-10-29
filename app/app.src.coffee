@@ -9,9 +9,6 @@ angular.module "ss", [
 ]
 
 .run ["$rootScope", "ss.services.auth", "$location", ($rootScope, authService, $location)->
-    $rootScope.$on "$stateChangeStart" ,(event,next,stateParams)->
-        if not next.anonymous and not authService.isLogin()
-            $location.path '/login'
 ]
 
 .config ["$stateProvider", "$urlRouterProvider", "localStorageServiceProvider", ($stateProvider, $urlRouterProvider, localStorageServiceProvider)->

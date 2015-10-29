@@ -121,7 +121,7 @@ function route(app){
         "code": "",
         "success": true
     };
-    app.get("/module/layout/menus/:parentId", function(req, res, next){
+    app.get("/dashboard/menu/:parentId", function(req, res, next){
         if (req.param("parentId") == -1)
             res.status(200).send(groups);
         else if (req.param("parentId") == 86)
@@ -131,6 +131,49 @@ function route(app){
 
     app.post("/login.do", function(req, res, next){
         res.status(200).send({"success":true});
+    });
+
+    app.get("/dashboard.me", function(req, res, next){
+        var user = {
+            "message": "您已经登录.",
+            "data": {
+                "id": 11,
+                "name": "admin",
+                "description": "admin user",
+                "password": "",
+                "head": null,
+                "types": 0,
+                "age": 0,
+                "sex": 0,
+                "country": null,
+                "realName": null,
+                "firstName": null,
+                "lastName": null,
+                "address": null,
+                "company": null,
+                "mobile": null,
+                "telephone": null,
+                "email": "admin@email.com",
+                "postal": null,
+                "birthday": null,
+                "lastChange": null,
+                "lastLogin": null,
+                "createDate": "Oct 22, 2015 2:04:39 PM",
+                "active": false,
+                "display": false,
+                "ssn": null,
+                "ca": null,
+                "resourceId": "USER_ADMIN",
+                "menuId": null,
+                "perspectiveId": null,
+                "roles": null,
+                "groupxs": null,
+                "organs": null
+            },
+            "code": "",
+            "success": true
+            };
+        res.status(200).send(user);
     });
 };
 

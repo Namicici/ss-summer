@@ -7,20 +7,25 @@ angular.module "ss.views"
     $scope.firstLoad = true
     expandGroup = null
     getAllGroups = ()->
-        promise = menuService.get(-1)
+        promise = menuService.getMenus(-1)
         promise.then (data)->
             $scope.groups = data
         , (msg)->
             console.log msg
     getMenus = (parentId)->
-        promise = menuService.get(parentId)
+        promise = menuService.getMenus(parentId)
         promise.then (data)->
             $scope.menus = data
         , (msg)->
             console.log msg
+    getUser = ()->
+        promise = menuService.getUser()
+        promise.then (data)->
+            $scope.user = data
+        , (msg)->
+            console.log msg
+    getUser()
     getAllGroups()
-
-    $scope.user = authService.getUser()
 
     $scope.expandGroup = (group)->
         if expandGroup

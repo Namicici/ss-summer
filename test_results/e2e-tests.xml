@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="login scenario" timestamp="2015-10-30T17:44:53" hostname="localhost" time="10.21" errors="0" tests="7" skipped="0" disabled="0" failures="1">
+  <testcase classname="login scenario" name="should locate to login page when click login link" time="4.347" />
+  <testcase classname="login scenario" name="should locate to sign up page when create an count" time="0.186" />
+  <testcase classname="login scenario" name="should locate to login page when sign up" time="0.453" />
+  <testcase classname="login scenario" name="should locate to dashboard page when login in" time="0.498" />
+  <testcase classname="login scenario" name="should display menus and user info when locate to dashboard page" time="0.218" />
+  <testcase classname="login scenario" name="should locate to user page" time="2.393">
+   <failure type="toBe" message="Expected &apos;http://localhost:8080/#/dashboard/menu/guests/guests&apos; to be &apos;http://localhost:8080/#/user&apos;."><![CDATA[Error: Failed expectation
+    at Object.<anonymous> (f:\GitHub\ss-summer\js\scenario.js:45:50)
+    at c:\Users\sli4\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:96:23
+    at new promise.Promise (eval at <anonymous> (c:\Users\sli4\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\goog\base.js:1124:19), <anonymous>:368:5)
+    at controlFlowExecute (c:\Users\sli4\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:82:18)
+    at [object Object].promise.ControlFlow.runInFrame_ (eval at <anonymous> (c:\Users\sli4\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\goog\base.js:1124:19), <anonymous>:1857:20)
+    at [object Object].promise.ControlFlow.runEventLoop_ (eval at <anonymous> (c:\Users\sli4\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\goog\base.js:1124:19), <anonymous>:1729:8)
+    at [object Object].eval (eval at <anonymous> (c:\Users\sli4\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\goog\base.js:1124:19), <anonymous>:2043:12)
+    at [object Object].goog.async.run.processWorkQueue [as _onTimeout] (c:\Users\sli4\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\goog\async\run.js:130:15)
+    at Timer.listOnTimeout [as ontimeout] (timers.js:112:15)]]>
+   </failure>
+  </testcase>
+  <testcase classname="login scenario" name="should display deal section info" time="2.108" />
+ </testsuite>
+</testsuites>

@@ -2,11 +2,17 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.login", ["$scope", "$location", "$http", "ss.services.auth",($scope, $location, $http, authService)->
-    $scope.logon = (username, password)->
+.controller "ss.views.login", ["$scope", "$location", "$http", "ss.services.auth","localStorageService",
+($scope, $location, $http, authService, localStorage)->
+    $scope.login = (email, password)->
         authService.login
-            username: username
+            email: email
             password: password
+        .then (data)->
+            localStorage.set authService.authKey, {email:email, password:password}
+            $location.path "/dashboard"
 
+    $scope.locateToSignUp = ()->
+        $location.path "/register"
 ]
 

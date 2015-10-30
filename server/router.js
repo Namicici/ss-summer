@@ -133,6 +133,10 @@ function route(app){
         res.status(200).send({"success":true});
     });
 
+    app.post("/register.do", function(req, res, next){
+        res.status(200).send({"success":true});
+    });
+
     app.get("/dashboard.me", function(req, res, next){
         var user = {
             "message": "您已经登录.",

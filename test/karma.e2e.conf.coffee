@@ -12,4 +12,4 @@ module.exports = (config)->
         proxies:
             "/": "http://localhost:8080/"
 
-        files: ["js/scenario.js"]
+        files: ["js/karmaScenario.js"]

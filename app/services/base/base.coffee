@@ -5,6 +5,8 @@ angular.module "ss.services"
     class baseService
         http:(httpConfig)->
             deferred = $q.defer()
+            if httpConfig.data and httpConfig.headers and httpConfig.headers['Content-Type']=='application/x-www-form-urlencoded'
+                httpConfig['transformRequest']= transformRequest
             $http httpConfig
             .success (data)->
                 if !data.success

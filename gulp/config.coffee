@@ -9,7 +9,8 @@ module.exports =
             sass: "sass/app.scss"
             coffee: ["app/app.src.coffee", "app/**/module.coffee", "app/**/*.coffee", "!app/**/*.e2e.coffee", "!app/**/*.spec.coffee"]
             testCoffee: [ "app/**/*.spec.coffee"]
-            scenarioCoffee: ["app/**/*.e2e.coffee"]
+            scenarioCoffee: ["e2e/*.e2e.coffee", "!e2e/*.karma.e2e.coffee"]
+            karmaScenarioCoffee: ["e2e/*.karma.e2e.coffee"]
         dist:
             js: "./js"
             css: "./css"

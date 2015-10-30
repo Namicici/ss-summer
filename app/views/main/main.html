@@ -167,7 +167,7 @@
                         <i class="{{group.icon}}"></i>
                         {{group.text}}
                     </div>
-                    <div class="menu" ng-repeat="menu in menus" ng-if="group.expand">
+                    <div id="ss-expand-menus" class="menu" ng-repeat="menu in menus" ng-if="group.expand">
                         <a class="item" ui-sref="main.menu({action: menu.attributes.action, target: menu.attributes.hrefTarget})" ng-class="{'active': menu.active}">
                             {{menu.text}}
                         </a>

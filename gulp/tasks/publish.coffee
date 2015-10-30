@@ -4,7 +4,7 @@ gulp = require "gulp"
 
 gulp.task "publish", ["usemin"], ()->
     gulp.src ["app/**/*.html", "app/**/*.png"]
-    .pipe gulp.dest "output/app"
+    .pipe gulp.dest "output/ui"
 
     gulp.src ["js/**/*.js", "!js/mocks.libs.js"]
     .pipe gulp.dest "output/js"

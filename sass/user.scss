@@ -3,11 +3,12 @@
     margin: 0 auto;
     height: 100%;
     .ss-user-header{
-        margin-top: 16px;
+        padding-top: 16px;
     }
     .ss-user-content{
-        margin-top: 8px;
-        height: 100%;
+        position: absolute;
+        bottom: 0;
+        top: 90px;
         .ss-user-left{
             width: 220px;
             text-align: center;

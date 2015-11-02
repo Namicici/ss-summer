@@ -2,7 +2,8 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.main", ["$rootScope", "$scope", "ss.services.menus", "$http", "ss.services.auth", (rootScope, $scope, menuService, $http, authService)->
+.controller "ss.views.main", ["$rootScope", "$scope", "ss.services.menus", "$http", "ss.services.auth", "ss.services.alertService",
+(rootScope, $scope, menuService, $http, authService, alertService)->
     $scope.visible = true
     $scope.firstLoad = true
     expandGroup = null
@@ -11,19 +12,19 @@ angular.module "ss.views"
         promise.then (data)->
             $scope.groups = data
         , (msg)->
-            console.log msg
+            alertService.error msg.message
     getMenus = (parentId)->
         promise = menuService.getMenus(parentId)
         promise.then (data)->
             $scope.menus = data
         , (msg)->
-            console.log msg
+            alertService.error msg.message
     getUser = ()->
         promise = menuService.getUser()
         promise.then (data)->
             $scope.user = data
         , (msg)->
-            console.log msg
+            alertService.error msg.message
     getUser()
     getAllGroups()
 

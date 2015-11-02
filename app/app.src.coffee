@@ -3,6 +3,7 @@
 angular.module "ss", [
     "ui.router",
     "LocalStorageModule",
+    "ngCookies",
     "ss.components",
     "ss.views",
     "ss.services"
@@ -15,7 +16,7 @@ angular.module "ss", [
             $location.path '/login'
     ###
     $rootScope.$on "$locationChangeStart", (event, next, current)->
-        restrictedPage = ["/login", "/signup"].indexOf($location.path()) != -1
+        restrictedPage = ["/login", "/register"].indexOf($location.path()) == -1
         if restrictedPage and not authService.isLogin()
             $location.path "/login"
 ]

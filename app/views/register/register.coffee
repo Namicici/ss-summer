@@ -13,7 +13,6 @@ angular.module "ss.views"
             password: password
             types: -1
         .then (data)->
-            localStorage.set authService.authKey, {email:email, password:password}
             $location.path "/login"
         , (msg)->
 ]

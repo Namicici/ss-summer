@@ -16,7 +16,7 @@ module.exports =
             css: "./css"
             publish: "./output"
         thirdParty:
-            js: ["libs/angular.min.js", "libs/angular-route.min.js", "libs/angular-ui-router.min.js", "libs/angular-local-storage.min.js"]
+            js: ["libs/angular.min.js", "libs/angular-route.min.js", "libs/angular-ui-router.min.js", "libs/angular-local-storage.min.js", "libs/angular-cookies.min.js"]
             css:["libs/semantic.min.css"]
             fonts:["libs/assets/**/*.*"]
             themes: ["libs/themes/**/*.*"]

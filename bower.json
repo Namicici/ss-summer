@@ -14,6 +14,7 @@
     "angular-resource": "~1.2.26",
     "angular-mocks": "~1.2.26",
     "angular-local-storage": "~0.1.5",
+    "angular-cookies": "~1.4.7",
     "moment": "~2.9.0",
     "jasmine": "2.2.1",
     "Sortable": "~1.2.0",

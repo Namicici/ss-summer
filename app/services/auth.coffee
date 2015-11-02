@@ -1,38 +1,47 @@
 "use strict"
 
 angular.module "ss.services"
-.service "ss.services.auth", ["$q", "$http", "ss.services.base", "$location", "$rootScope", "localStorageService",
-($q, $http, baseService, $location, $rootScope, localStorage)->
+.service "ss.services.auth", ["$q", "$http", "ss.services.base", "$location", "$rootScope", "localStorageService", "$cookieStore",
+($q, $http, baseService, $location, $rootScope, localStorage, $cookieStore)->
     class auth
-        authKey: "auth"
+        authKey: "ss.auth"
         user: null
 
-        login: (userData)->
+        login: (user)->
             self = this
             httpConfig =
                 url: "/login.do"
                 method: "post"
-                data: {email: userData.email, password: userData.password}
+                data: {email: user.email, password: user.password}
             return baseService.http httpConfig
 
-        signUp: (userData)->
+        signUp: (user)->
             httpConfig =
                 url: "/register.do"
                 method: "post"
-                data:{email: userData.email, password: userData.password, types: userData.types}
+                data:{email: user.email, password: user.password, types: user.types}
             return baseService.http httpConfig
 
         isLogin: ()->
-            userData = this.getUser()
-            if userData
+            user = this.getUser()
+            if user
                 return true
             else
                 return false
 
         getUser: ()->
             if !user
-                user = localStorage.get this.authKey
+                authData = $cookieStore.get this.authKey
+                if authData
+                    index = authData.indexOf ":"
+                    user = {}
+                    user.email = authData.slice 0, index
+                    user.password = authData.slice index + 1, authData.length
             return user
+
+        cacheUser: (user)->
+            authData = user.email + ":" + user.password
+            $cookieStore.put this.authKey, authData
     new auth
 
 ]

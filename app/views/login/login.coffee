@@ -9,7 +9,7 @@ angular.module "ss.views"
             email: email
             password: password
         .then (data)->
-            localStorage.set authService.authKey, {email:email, password:password}
+            authService.cacheUser {email:email, password:password}
             $location.path "/dashboard"
 
     $scope.locateToSignUp = ()->

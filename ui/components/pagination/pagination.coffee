@@ -4,7 +4,7 @@ angular.module "ss.components"
 
 .directive "ssPagination", [()->
     restrict: "EA"
-    templateUrl: "app/components/pagination/pagination.html"
+    templateUrl: "ui/components/pagination/pagination.html"
     scope:
         ssTotalPage: "="
         onPageChange: "&ssChange"

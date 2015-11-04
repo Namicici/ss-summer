@@ -4,7 +4,7 @@ angular.module "ss.components"
 
 .directive "ssMenu", ["$location", ($location)->
     restrict: "EA"
-    templateUrl: "app/components/menu/menu.html"
+    templateUrl: "ui/components/menu/menu.html"
     scope:
         ssItems: "="
     controller: ["$scope", ($scope)->

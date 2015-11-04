@@ -30,17 +30,17 @@ angular.module "ss", [
     $stateProvider
     .state "login",
         url:"/login"
-        templateUrl: "app/views/login/login.html"
+        templateUrl: "ui/views/login/login.html"
         controller: "ss.views.login"
 
     .state "register",
         url: "/register"
-        templateUrl: "app/views/register/register.html"
+        templateUrl: "ui/views/register/register.html"
         controller: "ss.views.register"
 
     .state "home",
         url: "/"
-        templateUrl: "app/views/home/home.html"
+        templateUrl: "ui/views/home/home.html"
         controller: "ss.views.home"
 
     .state "dashboard",
@@ -49,7 +49,7 @@ angular.module "ss", [
         templateProvider: ["ss.services.auth", "$http", "$templateCache", (authService, $http, $templateCache)->
             user = authService.getUser()
             if user
-                path = "app/views/dashboard/" + user.action + ".html"
+                path = "ui/views/dashboard/" + user.action + ".html"
                 $http.get path, cache: $templateCache
                 .then (html)->
                     return html.data
@@ -63,14 +63,14 @@ angular.module "ss", [
 
     .state "dashboard.manageMenus",
         url: "/manageMenus"
-        templateUrl: "app/views/manageMenus/manageMenus.html"
+        templateUrl: "ui/views/manageMenus/manageMenus.html"
         controller: "ss.views.manageMenus"
 
     .state "dashboard.menu",
         url: "/menu/:action/:target"
         templateUrl: ($stateParams)->
             console.log "templateurl: " + $stateParams.target
-            return "app/views/menus/" + $stateParams.target + ".html"
+            return "ui/views/menus/" + $stateParams.target + ".html"
 
         controller: ["$stateParams", ($stateParams)->
             console.log "controller: " + $stateParams.action
@@ -79,6 +79,6 @@ angular.module "ss", [
 
     .state "user",
         url:"/user"
-        templateUrl: "app/views/user/user.html"
+        templateUrl: "ui/views/user/user.html"
         controller: "ss.views.user"
 ]

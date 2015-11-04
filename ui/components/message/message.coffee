@@ -4,7 +4,7 @@ angular.module "ss.components"
 
 .directive "ssMessage", ["$timeout", ($timeout)->
     restrict: "EA"
-    templateUrl: "app/components/message/message.html"
+    templateUrl: "ui/components/message/message.html"
     scope:
         ssTitle: "@"
         ssContent: "@"

@@ -157,10 +157,10 @@
         <div class="ui primary inverted left inline vertical sidebar menu transition" ng-class="{'animating uncover visible': visible, 'animating uncover': !visible}">
             <div class="ui inverted vertical">
                 <div class="item ss-pointer-hover">
-                    <a class="ui logo icon image"  ui-sref="main.dashboard">
+                    <a class="ui logo icon image"  ui-sref="dashboard.manageMenus">
                         <img src="images/logo.png"></img>
                     </a>
-                    <a ui-sref="main.dashboard"><b>Dashboard</b></a>
+                    <a ui-sref="dashboard.manageMenus"><b>Dashboard</b></a>
                 </div>
                 <div class="item" ng-repeat = "group in groups">
                     <div class="header ss-pointer-hover" ng-click="expandGroup(group)">
@@ -168,7 +168,7 @@
                         {{group.text}}
                     </div>
                     <div id="ss-expand-menus" class="menu" ng-repeat="menu in menus" ng-if="group.expand">
-                        <a class="item" ui-sref="main.menu({action: menu.attributes.action, target: menu.attributes.hrefTarget})" ng-class="{'active': menu.active}">
+                        <a class="item" ui-sref="dashboard.menu({action: menu.attributes.action, target: menu.attributes.hrefTarget})" ng-class="{'active': menu.active}">
                             {{menu.text}}
                         </a>
                     </div>

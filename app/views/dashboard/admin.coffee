@@ -2,7 +2,7 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.main", ["$rootScope", "$scope", "ss.services.menus", "$http", "ss.services.auth", "ss.services.alertService",
+.controller "ss.views.admin", ["$rootScope", "$scope", "ss.services.menus", "$http", "ss.services.auth", "ss.services.alertService",
 (rootScope, $scope, menuService, $http, authService, alertService)->
     $scope.visible = true
     $scope.firstLoad = true

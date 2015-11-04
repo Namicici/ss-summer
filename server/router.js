@@ -130,7 +130,7 @@ function route(app){
 
 
     app.post("/login.do", function(req, res, next){
-        res.status(200).send({"success":true});
+        res.status(200).send({"success":true, "data": {"action": "admin"}});
     });
 
     app.post("/register.do", function(req, res, next){

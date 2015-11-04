@@ -7,11 +7,11 @@ angular.module "ss.views"
     $scope.back = ()->
         $location.path "/login"
 
-    $scope.submit = (email, password)->
+    $scope.submit = (email, password, type)->
         authService.signUp
             email: email
             password: password
-            types: -1
+            types: type
         .then (data)->
             $location.path "/login"
         , (msg)->

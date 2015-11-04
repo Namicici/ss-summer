@@ -13,6 +13,7 @@ angular.module "ss.services"
                 url: "/login.do"
                 method: "post"
                 data: {email: user.email, password: user.password}
+                headers:'Content-Type':'application/x-www-form-urlencoded'
             return baseService.http httpConfig
 
         signUp: (user)->
@@ -20,6 +21,7 @@ angular.module "ss.services"
                 url: "/register.do"
                 method: "post"
                 data:{email: user.email, password: user.password, types: user.types}
+                headers:'Content-Type':'application/x-www-form-urlencoded'
             return baseService.http httpConfig
 
         isLogin: ()->
@@ -31,17 +33,11 @@ angular.module "ss.services"
 
         getUser: ()->
             if !user
-                authData = $cookieStore.get this.authKey
-                if authData
-                    index = authData.indexOf ":"
-                    user = {}
-                    user.email = authData.slice 0, index
-                    user.password = authData.slice index + 1, authData.length
+                user = $cookieStore.get this.authKey
             return user
 
         cacheUser: (user)->
-            authData = user.email + ":" + user.password
-            $cookieStore.put this.authKey, authData
+            $cookieStore.put this.authKey, user
     new auth
 
 ]

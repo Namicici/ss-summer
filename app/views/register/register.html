@@ -9,10 +9,19 @@
             <div class="ss-field">
                 <input type="password" ng-model="password" placeholder="密码" ng-required="true"/>
             </div>
+            <div class="ss-field">
+                <select ng-model="type" class="ss-register-select" ng-init="type=0">
+                    <option value="0">admin</option>
+                    <option value="1">official</option>
+                    <option value="2">public</option>
+                    <option value="3">test</option>
+                    <option value="4">anon</option>
+                </select>
+            </div>
         </form>
         <div class="ss-signup-bottom">
             <button class="orange ui button ss-back" ng-click="back()">返回</button>
-            <button id="ss-register-submit-button" class="positive ui button ss-submit" ng-click="submit(email, password)" ng-disabled="formSignUp.$invalid">提交</button>
+            <button id="ss-register-submit-button" class="positive ui button ss-submit" ng-click="submit(email, password, type)" ng-disabled="formSignUp.$invalid">提交</button>
         </div>
     </div>
 

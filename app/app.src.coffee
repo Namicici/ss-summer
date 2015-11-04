@@ -28,20 +28,45 @@ angular.module "ss", [
     $urlRouterProvider.otherwise "/"
 
     $stateProvider
+    .state "login",
+        url:"/login"
+        templateUrl: "app/views/login/login.html"
+        controller: "ss.views.login"
+
+    .state "register",
+        url: "/register"
+        templateUrl: "app/views/register/register.html"
+        controller: "ss.views.register"
+
     .state "home",
         url: "/"
         templateUrl: "app/views/home/home.html"
         controller: "ss.views.home"
-    .state "main",
-        url: "/dashboard"
-        templateUrl: "app/views/main/main.html"
-        controller: "ss.views.main"
-    .state "main.dashboard",
-        url: "/menu"
-        templateUrl: "app/views/dashboard/dashboard.html"
-        controller: "ss.views.dashboard"
 
-    .state "main.menu",
+    .state "dashboard",
+        url: "/dashboard"
+
+        templateProvider: ["ss.services.auth", "$http", "$templateCache", (authService, $http, $templateCache)->
+            user = authService.getUser()
+            if user
+                path = "app/views/dashboard/" + user.action + ".html"
+                $http.get path, cache: $templateCache
+                .then (html)->
+                    return html.data
+        ]
+
+        controllerProvider: ["ss.services.auth", (authService)->
+            user = authService.getUser()
+            if user
+                return "ss.views." + user.action
+        ]
+
+    .state "dashboard.manageMenus",
+        url: "/manageMenus"
+        templateUrl: "app/views/manageMenus/manageMenus.html"
+        controller: "ss.views.manageMenus"
+
+    .state "dashboard.menu",
         url: "/menu/:action/:target"
         templateUrl: ($stateParams)->
             console.log "templateurl: " + $stateParams.target
@@ -56,14 +81,4 @@ angular.module "ss", [
         url:"/user"
         templateUrl: "app/views/user/user.html"
         controller: "ss.views.user"
-
-    .state "login",
-        url:"/login"
-        templateUrl: "app/views/login/login.html"
-        controller: "ss.views.login"
-
-    .state "register",
-        url: "/register"
-        templateUrl: "app/views/register/register.html"
-        controller: "ss.views.register"
 ]

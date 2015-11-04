@@ -3,14 +3,17 @@
 angular.module "ss.services"
 .service "ss.services.base", ["$q", "$http", ($q, $http)->
     class baseService
-        http:(httpConfig)->
+        transformRequest:(data,headers)->
+            if data
+                rs= []
+                rs.push encodeURIComponent(key)+ '='+encodeURIComponent(val) for key,val of data
+                res= rs.join '&'
+
+        http:(httpConfig, type)->
+            self = this
             deferred = $q.defer()
-
-            ###
-            if httpConfig.data and httpConfig.headers and httpConfig.headers['Content-Type']=='application/x-www-form-urlencoded'
-                httpConfig['transformRequest']= transformRequest
-            ###
-
+            if !type || type != "upload"
+                httpConfig['transformRequest']= self.transformRequest
             $http httpConfig
             .success (data)->
                 if !data.success

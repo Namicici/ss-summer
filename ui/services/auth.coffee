@@ -13,7 +13,6 @@ angular.module "ss.services"
                 url: "/login.do"
                 method: "post"
                 data: {email: user.email, password: user.password}
-                headers:'Content-Type':'application/x-www-form-urlencoded'
             return baseService.http httpConfig
 
         signUp: (user)->
@@ -21,7 +20,6 @@ angular.module "ss.services"
                 url: "/register.do"
                 method: "post"
                 data:{email: user.email, password: user.password, types: user.types}
-                headers:'Content-Type':'application/x-www-form-urlencoded'
             return baseService.http httpConfig
 
         isLogin: ()->

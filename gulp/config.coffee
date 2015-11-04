@@ -5,10 +5,10 @@ module.exports =
             css: ["./css"]
             publish: ["./output"]
         source:
-            templates: ["app/**/*.html"]
+            templates: ["ui/**/*.html"]
             sass: "sass/app.scss"
-            coffee: ["app/app.src.coffee", "app/**/module.coffee", "app/**/*.coffee", "!app/**/*.e2e.coffee", "!app/**/*.spec.coffee"]
-            testCoffee: [ "app/**/*.spec.coffee"]
+            coffee: ["ui/app.src.coffee", "ui/**/module.coffee", "ui/**/*.coffee", "!ui/**/*.e2e.coffee", "!ui/**/*.spec.coffee"]
+            testCoffee: [ "ui/**/*.spec.coffee"]
             scenarioCoffee: ["e2e/*.e2e.coffee", "!e2e/*.karma.e2e.coffee"]
             karmaScenarioCoffee: ["e2e/*.karma.e2e.coffee"]
         dist:

@@ -21,7 +21,9 @@ angular.module "ss", [
             $location.path "/login"
 ]
 
-.config ["$stateProvider", "$urlRouterProvider", "localStorageServiceProvider", ($stateProvider, $urlRouterProvider, localStorageServiceProvider)->
+.config ["$stateProvider", "$urlRouterProvider", "localStorageServiceProvider", "$httpProvider", ($stateProvider, $urlRouterProvider, localStorageServiceProvider, $httpProvider)->
+    $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
     localStorageServiceProvider.setPrefix "ss"
 

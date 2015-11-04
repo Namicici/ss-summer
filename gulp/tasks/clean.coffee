@@ -15,3 +15,4 @@ gulp.task "clean:css", [], ()->
 
 gulp.task "clean:output",[],()->
     del paths.clean.publish
+    #del "F:\Git\workshop-j2ee\workshop-j2ee\workshop-j2ee-web\workshop-j2ee-web-app\src\main\webapp\resources\app"

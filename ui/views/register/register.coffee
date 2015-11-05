@@ -2,17 +2,18 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.register", ["$scope", "$location", "$http", "ss.services.auth","localStorageService", "ss.services.alertService",
-($scope, $location, $http, authService, localStorage, alertService)->
+.controller "ss.views.register", ["$scope", "$location", "$http", "ss.services.auth","localStorageService", "ss.services.alertService", "ssLoading",
+($scope, $location, $http, authService, localStorage, alertService, loading)->
     $scope.back = ()->
         $location.path "/login"
 
     $scope.submit = (email, password, type)->
-        authService.signUp
+        promise = authService.signUp
             email: email
             password: password
             types: type
-        .then (data)->
+        loading promise
+        promise.then (data)->
             $scope.error = false
             $location.path "/login"
         , (msg)->

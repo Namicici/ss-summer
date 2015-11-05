@@ -1,4 +1,4 @@
-exports.user = getUserInfo;
+exports.getUserInfo = getUserInfo;
 
 function getUserInfo(req, res, next){
     var user = {

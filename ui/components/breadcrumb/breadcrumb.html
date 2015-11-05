@@ -1,0 +1,14 @@
+<div class="ui breadcrumb ss-breadcrumb" style="margin-bottom: 16px;">
+    <i class="home icon"></i>
+    <a class="section">Home</a>
+    <i class="right angle icon divider"></i>
+    <div ng-if="ssItem" style="display:inline-block">
+        <a class="section">{{ssGroup}}</a>
+        <i class="right angle icon divider"></i>
+
+        <div class="active section">{{ssItem}}</div>
+    </div>
+    <div ng-if="!ssItem" style="display:inline-block">
+        <div class="active section">{{ssGroup}}</div>
+    </div>
+</div>

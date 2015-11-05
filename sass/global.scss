@@ -31,3 +31,16 @@ $ss-nav-width: 260px;
         cursor: pointer;
     }
 }
+.ss-loader-container{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    background-color: black;
+    opacity: 0.2;
+}
+.ss-breadcrumb{
+    width: 100%;
+    height:32px;
+    border-bottom: solid 1px #eee;
+}

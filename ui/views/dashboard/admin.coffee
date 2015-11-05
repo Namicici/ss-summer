@@ -2,25 +2,28 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.admin", ["$rootScope", "$scope", "ss.services.menus", "$http", "ss.services.auth", "ss.services.alertService",
-(rootScope, $scope, menuService, $http, authService, alertService)->
+.controller "ss.views.admin", ["$rootScope", "$scope", "ss.services.menus", "$http", "ss.services.auth", "ss.services.alertService", "ssLoading",
+(rootScope, $scope, menuService, $http, authService, alertService, loading)->
     $scope.visible = true
     $scope.firstLoad = true
     expandGroup = null
     getAllGroups = ()->
         promise = menuService.getMenus(-1)
+        loading promise
         promise.then (data)->
             $scope.groups = data
         , (msg)->
             alertService.error msg.message
     getMenus = (parentId)->
         promise = menuService.getMenus(parentId)
+        loading promise
         promise.then (data)->
             $scope.menus = data
         , (msg)->
             alertService.error msg.message
     getUser = ()->
         promise = menuService.getUser()
+        loading promise
         promise.then (data)->
             $scope.user = data
         , (msg)->
@@ -34,6 +37,10 @@ angular.module "ss.views"
         expandGroup = group
         group.expand = true
         getMenus group.id
+
+    $scope.setBreadcrumb = (groupName, menuName)->
+        $scope.groupName = groupName
+        $scope.menuName = menuName
 
     $scope.$on "ss.components.header-menu.changed", (scope, item, subItem)->
         $scope.item = item

@@ -2,7 +2,7 @@ exports.verifyLogin = verifyLogin;
 exports.verifyRegister = verifyRegister;
 
 function verifyLogin(req, res, next){
-    if ((req.body.email == "admin@software.dell.com") && (req.body.password == "admin"))
+    if ((req.body.email == "admin@email.com") && (req.body.password == "admin"))
         res.status(200).send({"success":true, "data": {"action": "admin"}});
     else
         res.status(200).send({

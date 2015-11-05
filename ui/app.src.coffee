@@ -63,10 +63,10 @@ angular.module "ss", [
                 return "ss.views." + user.action
         ]
 
-    .state "dashboard.manageMenus",
-        url: "/manageMenus"
-        templateUrl: "ui/views/manageMenus/manageMenus.html"
-        controller: "ss.views.manageMenus"
+    .state "dashboard.management",
+        url: "/management"
+        templateUrl: "ui/views/management/management.html"
+        controller: "ss.views.management"
 
     .state "dashboard.menu",
         url: "/menu/:action/:target"

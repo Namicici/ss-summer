@@ -2,13 +2,14 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.login", ["$scope", "$location", "$http", "ss.services.auth","localStorageService",
-($scope, $location, $http, authService, localStorage)->
+.controller "ss.views.login", ["$scope", "$location", "$http", "ss.services.auth","localStorageService", "ssLoading",
+($scope, $location, $http, authService, localStorage, loading)->
     $scope.login = (email, password)->
-        authService.login
+        promise = authService.login
             email: email
             password: password
-        .then (data)->
+        loading promise
+        promise.then (data)->
             $scope.error = false
             authService.cacheUser {email:email, password:password, action: data.action}
             $location.path "/dashboard"

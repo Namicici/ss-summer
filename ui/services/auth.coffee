@@ -18,7 +18,7 @@ angular.module "ss.services"
         signUp: (user)->
             httpConfig =
                 url: "/register.do"
-                method: "post"
+                method: "put"
                 data:{email: user.email, password: user.password, types: user.types}
             return baseService.http httpConfig
 

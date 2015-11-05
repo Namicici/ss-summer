@@ -3,8 +3,16 @@
     <div class="ss-login-contents">
         <form name="formSignUp">
             <div class="ss-header">注册</div>
+
+            <div class="ui negative message" ng-if="error" style="width: 96%; margin-left: 2%;">
+                <div class="header" style = "display: inline-block">
+                    Error:
+                </div>
+                <p style="display: inline-block">{{errorMsg}}</p>
+            </div>
+
             <div class="ss-field">
-                <input type="text" ng-model="email" placeholder="邮箱" ng-required="true"/>
+                <input type="email" ng-model="email" placeholder="邮箱" ng-required="true"/>
             </div>
             <div class="ss-field">
                 <input type="password" ng-model="password" placeholder="密码" ng-required="true"/>

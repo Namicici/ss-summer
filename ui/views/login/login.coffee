@@ -9,8 +9,12 @@ angular.module "ss.views"
             email: email
             password: password
         .then (data)->
+            $scope.error = false
             authService.cacheUser {email:email, password:password, action: data.action}
             $location.path "/dashboard"
+        , (msg)->
+            $scope.error = true
+            $scope.errorMsg = msg.message
 
     $scope.locateToSignUp = ()->
         $location.path "/register"

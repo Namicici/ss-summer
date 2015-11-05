@@ -2,8 +2,8 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.register", ["$scope", "$location", "$http", "ss.services.auth","localStorageService",
-($scope, $location, $http, authService, localStorage)->
+.controller "ss.views.register", ["$scope", "$location", "$http", "ss.services.auth","localStorageService", "ss.services.alertService",
+($scope, $location, $http, authService, localStorage, alertService)->
     $scope.back = ()->
         $location.path "/login"
 
@@ -13,6 +13,9 @@ angular.module "ss.views"
             password: password
             types: type
         .then (data)->
+            $scope.error = false
             $location.path "/login"
         , (msg)->
+            $scope.error = true
+            $scope.errorMsg = msg.message
 ]

@@ -1,0 +1,22 @@
+@keyframes padding-move{
+    0%{
+        transform: translate3d(0, 0, 0);
+        animation-timing-function: ease-in;
+    }
+    25%{
+        transform:translate3d(0, 65px, 0);
+        animation-timing-function: ease-in;
+    }
+    50%{
+        transform: translate3d(0, 130px, 0);
+        animation-timing-function: ease-in;
+    }
+    75%{
+        transform: translate3d(0, 195px, 0);
+        animation-timing-function: ease-in;
+    }
+    100%{
+        transform:translate3d(0, 260px, 0);
+        animation-timing-function: ease-in;
+    }
+}

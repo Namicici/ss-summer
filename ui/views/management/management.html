@@ -1,5 +1,5 @@
 <div class="ss-management">
-    <div class="ss-create-new-menu">
+    <div class="ss-create-new-menu" ng-if="status == 0">
         <h1 class="ui center aligned green header">Create New Menu</h1>
 
         <form class="ui form">
@@ -25,6 +25,19 @@
             </div>
             <button class="fluid ui button" type="submit">Create New Menu</button>
         </form>
-
+    </div>
+    <div ng-if="status != 0">
+        <div class="ui middle aligned divided selection list">
+            <div class="item" ng-repeat="group in groups" style="padding: 16px 0; cursor: pointer;" ng-click="group.active=true">
+                <img class="ui avatar image" src="images/elliot.jpg">
+                <div class="content">
+                    <div class="header">{{group.text}}</div>
+                    <div class="description" style="margin-top: 8px;">{{group.attributes.description}}</div>
+                </div>
+                <div class="ui segment" ng-if="group.active">
+                    This is content
+                </div>
+            </div>
+        </div>
     </div>
 </div>

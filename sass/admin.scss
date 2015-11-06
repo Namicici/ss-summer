@@ -1,20 +1,13 @@
 
 .ss-content-padding-right{
-    transition-property: padding-right;
-    transition-duration: 2s;
-    transition-delay: 0s;
     //padding-right: $ss-nav-width;
-    /*-moz-transition: padding-right 3s ease-in;
-     -o-transition: padding-right  3s ease-in;
-     -webkit-transition: padding-right 3s ease-in;
-     transition: padding-right  3s ease-in;*/
+    transition: transform .2s ease-in;
+    &：hover{
+        transform: translate3d(0px, 260px, 0px);
+    }
 }
 .ss-content-padding-right-out{
     padding-right: 0;
-    -moz-transition: padding-right 3s ease-out;
-     -o-transition: padding-right  3s ease-out;
-     -webkit-transition: padding-right 3s ease-out;
-     transition: padding-right  3s ease-out;
 }
 
 .ss-top{

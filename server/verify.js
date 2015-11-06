@@ -13,7 +13,7 @@ function verifyLogin(req, res, next){
 }
 
 function verifyRegister(req, res, next){
-    if (req.body.types == 0)
+    if (req.body.type == 1)
         res.status(200).send({"success":true, "data": null});
     else
         res.status(200).send({

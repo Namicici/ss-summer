@@ -11,7 +11,7 @@ angular.module "ss.views"
         promise = authService.signUp
             email: email
             password: password
-            types: type
+            type: type
         loading promise
         promise.then (data)->
             $scope.error = false

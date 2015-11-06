@@ -12,14 +12,14 @@ angular.module "ss.services"
             httpConfig =
                 url: "/login.do"
                 method: "post"
-                data: {email: user.email, password: user.password}
+                data: user
             return baseService.http httpConfig
 
         signUp: (user)->
             httpConfig =
                 url: "/register.do"
                 method: "put"
-                data:{email: user.email, password: user.password, types: user.types}
+                data: user
             return baseService.http httpConfig
 
         isLogin: ()->

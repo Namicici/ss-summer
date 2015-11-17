@@ -2,6 +2,7 @@
 
 angular.module "ss.services"
 .service "ss.services.menus", ["ss.services.base", (baseService)->
+
     getMenus: (parentId)->
         httpConfig =
             method: "GET"

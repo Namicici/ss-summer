@@ -28,15 +28,17 @@
     </div>
     <div ng-if="status != 0">
         <div class="ui middle aligned divided selection list">
-            <div class="item" ng-repeat="group in groups" style="padding: 16px 0; cursor: pointer;" ng-click="group.active=true">
+            <div class="item" ng-repeat="group in groups" style="padding: 16px 0; cursor: pointer;" ng-click="setGroupActive(group)">
                 <img class="ui avatar image" src="images/elliot.jpg">
                 <div class="content">
                     <div class="header">{{group.text}}</div>
                     <div class="description" style="margin-top: 8px;">{{group.attributes.description}}</div>
                 </div>
-                <div class="ui segment" ng-if="group.active">
-                    This is content
-                </div>
+                <ss-tab ng-if="group.active">
+                    <ss-pane title="{{menu.text}}" ng-repeat="menu in menus">
+                        <div>ppp</div>
+                    </ss-pane>
+                </ss-tab>
             </div>
         </div>
     </div>

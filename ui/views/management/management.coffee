@@ -19,6 +19,7 @@ angular.module "ss.views"
     getAllGroups()
 
     getMenus = (parentId)->
+        $scope.menus = []
         promise = menuService.getMenus(parentId)
         loading promise
         promise.then (data)->
@@ -26,4 +27,12 @@ angular.module "ss.views"
         , (msg)->
             alertService.error msg.message
 
+    $scope.setGroupActive = (group)->
+        if $scope.currentActiveGroup == group
+            return
+        if $scope.currentActiveGroup
+            $scope.currentActiveGroup.active = false
+        $scope.currentActiveGroup = group
+        $scope.currentActiveGroup.active = true
+        getMenus group.id
 ]

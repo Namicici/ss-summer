@@ -128,5 +128,6 @@ function getMenus(req, res, next){
         res.status(200).send(groups);
     else if (req.param("parentId") == 86)
         res.status(200).send(menus);
-
+    else
+        res.status(600).send({message: "No data."});
 }

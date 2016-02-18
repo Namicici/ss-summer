@@ -23,7 +23,7 @@ angular.module "ss.services"
                     deferred.reject msg
                 else
                     deferred.resolve data.data
-            , (data, statusCode)->
+            .error (data, statusCode)->
                 msg = {}
                 msg.code = statusCode
                 msg.message = data.message

@@ -2,8 +2,9 @@
 
 angular.module "ss.views"
 
-.controller "ss.views.admin", ["$rootScope", "$scope", "ss.services.menus", "$http", "ss.services.auth", "ss.services.alertService", "ssLoading",
-(rootScope, $scope, menuService, $http, authService, alertService, loading)->
+.controller "ss.views.admin", ["$rootScope", "$scope", "ss.services.menus", "$http", "ss.services.auth", "ss.services.alertService", 
+"ssLoading", "$location",
+(rootScope, $scope, menuService, $http, authService, alertService, loading, $location)->
     $scope.visible = true
     $scope.firstLoad = true
     expandGroup = null
@@ -20,6 +21,8 @@ angular.module "ss.views"
         promise.then (data)->
             $scope.menus = data
         , (msg)->
+            $scope.menus = []
+
             alertService.error msg.message
     getUser = ()->
         promise = menuService.getUser()

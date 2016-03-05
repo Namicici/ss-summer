@@ -19,7 +19,6 @@
     "jasmine": "2.2.1",
     "Sortable": "~1.2.0",
     "c3": "https://github.com/masayuki0812/c3.git#0.4.10",
-    "MutationObserver-shim": "~0.3.1",
-    "angular-cookies": "~1.2.26"
+    "MutationObserver-shim": "~0.3.1"
   }
 }

@@ -21,19 +21,20 @@
     "gulp": "^3.5.6",
     "gulp-angular-templatecache": "^1.7.0",
     "gulp-coffee": "^2.3.1",
-    "gulp-concat": "^2.2.0",
+    "gulp-concat": "^2.6.0",
     "gulp-copy": "~0.0.2",
     "gulp-minify-css": "^0.3.0",
     "gulp-rename": "^1.2.0",
-    "gulp-sass": "^0.7.1",
+    "gulp-sass": "^1.3.3",
     "gulp-uglify": "^1.2.0",
     "gulp-usemin": "^0.3.11",
     "html-minifier": "^0.7.2",
+    "jasmine-reporters": "^2.0.5",
     "jquery": "^2.1.4",
+    "node-gyp": "^3.3.0",
     "querystring": "^0.2.0",
     "semantic-ui-css": "^2.0.8",
     "semantic-ui-icon": "^2.0.8",
-    "jasmine-reporters": "^2.0.5",
     "through": "2.3.6"
   },
   "devDependencies": {
@@ -57,7 +58,7 @@
     "test": "karma start karma.conf.js",
     "prekarma-e2e": "npm run build",
     "karma-e2e": "karma start test/karma.e2e.conf.coffee",
-    "pree2e":"npm run build",
+    "pree2e": "npm run build",
     "e2e": "protractor test/protractor.conf.js"
   }
 }
